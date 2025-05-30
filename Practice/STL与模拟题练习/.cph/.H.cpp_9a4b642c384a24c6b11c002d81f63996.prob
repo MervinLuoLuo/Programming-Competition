@@ -1,0 +1,1 @@
+{"name":"Local: H","url":"e:\\C++Project\\Practice\\STL与模拟题练习\\H.cpp","tests":[{"id":1736941584380,"input":"2\naeiou\nmy name is ignatius\n","output":"a:1\ne:1\ni:1\no:1\nu:1\n\na:2\ne:1\ni:3\no:0\nu:1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++Project\\Practice\\STL与模拟题练习\\H.cpp","group":"local","local":true}

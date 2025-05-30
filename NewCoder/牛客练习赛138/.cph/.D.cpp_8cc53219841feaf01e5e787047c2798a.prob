@@ -1,0 +1,1 @@
+{"name":"Local: D","url":"f:\\C++Project\\NewCoder\\牛客练习赛138\\D.cpp","tests":[{"id":1746792042944,"input":"3\n001\n0110\n10001","output":"6"},{"id":1746792056356,"input":"2\n10\n01","output":"-1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\NewCoder\\牛客练习赛138\\D.cpp","group":"local","local":true}

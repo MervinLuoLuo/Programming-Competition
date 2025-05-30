@@ -1,0 +1,1 @@
+{"name":"Local: G","url":"e:\\C++Project\\Practice\\堆，单调栈，单调队列\\G.cpp","tests":[{"id":1737385657818,"input":"3 3\n2 3\n2 1\n5 2","output":"2 1 2\n1 3\n0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++Project\\Practice\\堆，单调栈，单调队列\\G.cpp","group":"local","local":true}

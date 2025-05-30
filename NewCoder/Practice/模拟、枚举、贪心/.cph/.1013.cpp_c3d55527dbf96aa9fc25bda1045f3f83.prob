@@ -1,0 +1,1 @@
+{"name":"Local: 1013","url":"f:\\C++Project\\NewCoder\\Practice\\模拟、枚举、贪心\\1013.cpp","tests":[{"id":1741274111700,"input":"2\n-5 5\n10 10","output":"1"},{"id":1741274119208,"input":"6\n0 1 2 3 4 5\n1 1 4 5 1 4","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\NewCoder\\Practice\\模拟、枚举、贪心\\1013.cpp","group":"local","local":true}

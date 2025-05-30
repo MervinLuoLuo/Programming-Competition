@@ -1,0 +1,1 @@
+{"name":"Local: G","url":"e:\\C++Project\\Universal Cup Harbin\\G.cpp","tests":[{"id":1732719025455,"input":"4 5 3\n2 4 3\n1 2\n1 3\n2 3\n3 4\n2 4","output":"NO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++Project\\Universal Cup Harbin\\G.cpp","group":"local","local":true}

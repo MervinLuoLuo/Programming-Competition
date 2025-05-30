@@ -1,0 +1,1 @@
+{"name":"Local: A","url":"e:\\C++Project\\Practice\\STL与模拟题练习\\A.cpp","tests":[{"id":1736746753926,"input":"\nqwe\nasd\nzxc","output":"e q w\na d s\nc x z\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++Project\\Practice\\STL与模拟题练习\\A.cpp","group":"local","local":true}

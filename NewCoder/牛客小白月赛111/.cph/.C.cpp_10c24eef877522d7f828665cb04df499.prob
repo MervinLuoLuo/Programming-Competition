@@ -1,0 +1,1 @@
+{"name":"Local: C","url":"f:\\C++Project\\NewCoder\\牛客小白月赛111\\C.cpp","tests":[{"id":1741347475275,"input":"6\nkano\nkano\nfun\nkano\nniuke\nkano","output":"3"},{"id":1741347480010,"input":"3\naa\naa\nb","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\NewCoder\\牛客小白月赛111\\C.cpp","group":"local","local":true}

@@ -1,0 +1,49 @@
+/*https://codeforces.com/problemset/problem/2070/C*/
+#include <bits/stdc++.h>
+#define endl '\n'
+#define yes cout << "Yes" << endl
+#define no cout << "No" << endl
+#define int long long
+#define pii pair<int,int>
+using namespace std;
+const int INF = 1e18;
+const int maxn = 1e9;
+
+bool check(int mid, const vector<int> &a, const string &s, int n,int k){
+    char last= 'R';
+    int cnt = 0;
+    for(int i = 0; i < n ; i++){
+        if(a[i] > mid){
+            if(s[i] == 'B' && last != 'B') cnt++;
+            last = s[i];
+        }
+    }
+    return cnt <= k;
+}
+
+void solve(){
+    int n,k;cin >> n >> k;
+    string s;cin >> s;
+    vector<int> a(n);
+    for(int i = 0; i < n; i++) cin >> a[i];
+    int l = 0,r = maxn, ans= -1;
+    while(l <= r){
+        int mid = l + (r - l) / 2;
+        if(check(mid,a,s,n,k)){
+            ans = mid;
+            r = mid - 1;
+        }
+        else l = mid + 1;
+    }
+    cout << ans << endl;
+}
+signed main(){
+    ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    int t;
+    //t = 1;
+    cin >> t;
+    while(t--){
+       solve();
+    }
+    return 0;
+}

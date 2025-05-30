@@ -1,0 +1,1 @@
+{"name":"Local: A","url":"f:\\C++Project\\NewCoder\\牛客小白月赛111\\A.cpp","tests":[{"id":1741345689345,"input":"2 2 2\n2 2 3","output":"No"},{"id":1741345694892,"input":"3 2 1\n1 2 3","output":"Yes"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\NewCoder\\牛客小白月赛111\\A.cpp","group":"local","local":true}

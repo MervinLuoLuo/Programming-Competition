@@ -1,0 +1,1 @@
+{"name":"Local: F","url":"e:\\C++Project\\Practice\\堆，单调栈，单调队列\\F.cpp","tests":[{"id":1737370047265,"input":"3 \n2 10 \n1 5 \n1 7 \n","output":"17 \n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++Project\\Practice\\堆，单调栈，单调队列\\F.cpp","group":"local","local":true}

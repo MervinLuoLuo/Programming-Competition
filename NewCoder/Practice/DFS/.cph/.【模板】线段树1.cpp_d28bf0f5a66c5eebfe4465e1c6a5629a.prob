@@ -1,0 +1,1 @@
+{"name":"Local: 【模板】线段树1","url":"f:\\C++Project\\NewCoder\\Practice\\DFS\\【模板】线段树1.cpp","tests":[{"id":1747743802905,"input":"5 5\n1 2 3 4 5\n1 1 5\n2 2 4\n1 4 -2\n1 5 5\n2 1 5","output":"9\n23"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\NewCoder\\Practice\\DFS\\【模板】线段树1.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: P1118 [USACO06FEB] Backward Digit Sums GS","url":"f:\\C++Project\\Luogu\\P1118 [USACO06FEB] Backward Digit Sums GS.cpp","tests":[{"id":1748364029513,"input":"4 16","output":"3 1 2 4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\Luogu\\P1118 [USACO06FEB] Backward Digit Sums GS.cpp","group":"local","local":true}

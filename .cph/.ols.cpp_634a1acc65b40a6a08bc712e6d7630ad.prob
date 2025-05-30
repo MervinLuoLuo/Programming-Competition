@@ -1,0 +1,1 @@
+{"name":"Local: ols","url":"e:\\Dev C++ Project\\ols.cpp","tests":[{"id":1731685174801,"input":"100 5\n1\n2\n3\n4\n5","output":"2\n3\n5\n7\n11"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Dev C++ Project\\ols.cpp","group":"local","local":true}

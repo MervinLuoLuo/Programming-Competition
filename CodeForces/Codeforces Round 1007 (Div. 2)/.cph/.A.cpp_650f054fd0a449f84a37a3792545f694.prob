@@ -1,0 +1,1 @@
+{"name":"Local: A","url":"f:\\C++Project\\CodeForces\\Codeforces Round 1007 (Div. 2)\\A.cpp","tests":[{"id":1741363394751,"input":"4\n1\n2\n333\n1000000000","output":"YES\nNO\nNO\nYES\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\CodeForces\\Codeforces Round 1007 (Div. 2)\\A.cpp","group":"local","local":true}

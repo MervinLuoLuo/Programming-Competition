@@ -1,0 +1,1 @@
+{"name":"Local: L2-041","url":"e:\\C++Project\\Practice\\L2-041.cpp","tests":[{"id":1731807717415,"input":"8 3 4\n20 25 15 18 20 18 8 5","output":"20 15\n20 18 18 8\n25 5\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++Project\\Practice\\L2-041.cpp","group":"local","local":true}

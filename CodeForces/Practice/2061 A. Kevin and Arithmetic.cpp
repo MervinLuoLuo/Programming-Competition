@@ -1,0 +1,32 @@
+/*https://codeforces.com/problemset/problem/2061/A*/
+#include <bits/stdc++.h>
+#define endl '\n'
+#define yes cout << "Yes" << endl
+#define no cout << "No" << endl
+#define int long long
+#define pii pair<int,int>
+using namespace std;
+const int INF = 1e18;
+const int maxn = 1e9;
+
+void solve(){
+    int n;cin >> n;
+    int odd = 0, even = 0;
+    for(int i = 0; i < n;i++){
+        int x;cin >> x;
+        if(x & 1) odd++;
+        else even++;
+    }
+    if(even != 0) cout << odd + 1 << endl;
+    else cout << odd - 1 << endl;
+}
+signed main(){
+    ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    int t;
+    //t = 1;
+    cin >> t;
+    while(t--){
+       solve();
+    }
+    return 0;
+}

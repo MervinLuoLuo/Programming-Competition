@@ -1,0 +1,1 @@
+{"name":"Local: Q","url":"e:\\C++Project\\Practice\\STL与模拟题练习\\Q.cpp","tests":[{"id":1736947317072,"input":"1 100\n0 0\n","output":"80\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++Project\\Practice\\STL与模拟题练习\\Q.cpp","group":"local","local":true}

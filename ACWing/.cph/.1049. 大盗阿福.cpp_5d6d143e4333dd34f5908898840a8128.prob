@@ -1,0 +1,1 @@
+{"name":"Local: 1049","url":"f:\\C++Project\\ACWing\\1049. 大盗阿福.cpp","tests":[{"id":1742279663420,"input":"2\n3\n1 8 2\n4\n10 7 6 14","output":"8\n24"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\ACWing\\1049. 大盗阿福.cpp","group":"local","local":true}

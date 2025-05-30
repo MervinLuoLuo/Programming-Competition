@@ -1,0 +1,1 @@
+{"name":"Local: I","url":"e:\\C++Project\\Practice\\STL与模拟题练习\\I.cpp","tests":[{"id":1736942161144,"input":"abcdefgfedcba\nxxxxx\n","output":"abcdefg(max)fedcba\nx(max)x(max)x(max)x(max)x(max)\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++Project\\Practice\\STL与模拟题练习\\I.cpp","group":"local","local":true}

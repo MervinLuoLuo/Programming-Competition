@@ -1,0 +1,1 @@
+{"name":"Local: B","url":"e:\\C++Project\\NewCoder\\2025牛客寒假算法基础集训营4\\B.cpp","tests":[{"id":1738980261595,"input":"4\n1\n0\n4\n??01\n5\n?????\n10\n010??1101?","output":"1\n8\n80\n40"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\C++Project\\NewCoder\\2025牛客寒假算法基础集训营4\\B.cpp","group":"local","local":true}
