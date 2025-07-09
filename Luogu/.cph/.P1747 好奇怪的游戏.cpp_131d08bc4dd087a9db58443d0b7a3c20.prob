@@ -1,0 +1,1 @@
+{"name":"Local: P1747 好奇怪的游戏","url":"f:\\C++Project\\Luogu\\P1747 好奇怪的游戏.cpp","tests":[{"id":1749572218356,"input":"12 16\n18 10","output":"8 \n9"},{"id":1749572332677,"input":"1 2\n2 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\Luogu\\P1747 好奇怪的游戏.cpp","group":"local","local":true}

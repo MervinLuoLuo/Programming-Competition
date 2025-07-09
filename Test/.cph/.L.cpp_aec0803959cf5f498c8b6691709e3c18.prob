@@ -1,0 +1,1 @@
+{"name":"Local: L","url":"f:\\C++Project\\Test\\L.cpp","tests":[{"id":1751438850482,"input":"5\nO2 O7\nM9 M2\nG2 G2\nA0 B9\nF8 K1","output":"hotter\ncooler\nsame\ncooler\nhotter"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\Test\\L.cpp","group":"local","local":true}

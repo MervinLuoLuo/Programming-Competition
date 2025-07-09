@@ -1,0 +1,1 @@
+{"name":"Local: P1189 SEARCH","url":"f:\\C++Project\\Luogu\\P1189 SEARCH.cpp","tests":[{"id":1751296572547,"input":"4 5\n.....\n.X...\n...*X\nX.X..\n3\nNORTH\nWEST\nSOUTH","output":".....\n*X*..\n*.*.X\nX.X..\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\Luogu\\P1189 SEARCH.cpp","group":"local","local":true}

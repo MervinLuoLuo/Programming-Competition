@@ -8,76 +8,86 @@
 using namespace std;
 const int INF = 1e18;
 const int maxn = 1e9;
-int n;
-vector<int> a;
-struct Node{
-    int data = 0;
+int n,m;
+
+class Node{
+    public:
+    int val;
     int lazy = 0;
 };
-vector<Node> tree;
+vector<Node> seg;
+vector<int> a;
 
 void build(int cur,int l,int r){
     if(l == r){
-        tree[cur].data = a[l];
+        seg[cur].val = a[l];
         return;
     }
     int mid = l + ((r - l) >> 1);
-    build(cur * 2,l,mid);
-    build(cur * 2 + 1,mid + 1, r);
-    tree[cur].data = tree[cur * 2].data + tree[cur * 2 + 1].data;
+    build(2 * cur,l,mid);
+    build(2*cur + 1,mid + 1, r);
+    seg[cur].val = seg[2*cur].val + seg[2*cur + 1].val;
 }
 
 void pushDown(int cur,int l,int r){
-    if(tree[cur].lazy){
+    if(seg[cur].lazy){
         int mid = l + ((r - l) >> 1);
         //Left
-        tree[cur * 2].data += tree[cur].lazy * (mid - l + 1);
-        tree[cur * 2].lazy += tree[cur].lazy;
+        seg[2*cur].val += seg[cur].lazy * (mid - l + 1);
+        seg[2*cur].lazy += seg[cur].lazy;
         //Right
-        tree[cur * 2 + 1].data += tree[cur].lazy * (r-mid);
-        tree[cur*2+1].lazy += tree[cur].lazy;
-        //Clear
-        tree[cur].lazy = 0;
-    }
-}
+        seg[2*cur + 1].val += seg[cur].lazy * (r - mid);
+        seg[2*cur + 1].lazy += seg[cur].lazy;
 
-void update(int cur,int l,int r,int ul,int ur,int v){
-    if(l > ur || r < ul) return;
-    if(l >= ul && r <= ur){
-        tree[cur].data += v*(r - l + 1);
-        tree[cur].lazy += v;
-        return;
+        seg[cur].lazy = 0;
     }
-    pushDown(cur,l,r);
-    int mid = l + ((r - l) >> 1);
-    update(2*cur,l,mid,ul,ur,v);
-    update(cur * 2 + 1,mid + 1,r ,ul,ur,v);
-    tree[cur].data = tree[cur *2].data + tree[cur * 2+ 1].data;
 }
 
 int query(int cur,int l,int r,int ql,int qr){
-    if(l > qr || r < ql) return 0;
-    if(l >= ql && r <= qr) return tree[cur].data;
-    pushDown(cur,l,r);
-    int mid = l + ((r - l ) >>1);
-    return query(2 * cur,l,mid,ql,qr) + query(2 * cur + 1,mid + 1,r,ql,qr);
+    if(ql > r || qr < l) return 0;
+    
+    if(ql <= l && qr >= r) return seg[cur].val;
+
+    int mid = l + ((r - l) >> 1);
+    pushDown(cur,l,r);//更新懒标记
+
+    int lsum = query(cur * 2,l,mid,ql,qr);
+    int rsum = query(cur * 2 + 1,mid + 1,r,ql,qr);
+    int sum = lsum + rsum;
+    return sum;
 }
 
+void update(int cur,int l,int r,int ul,int ur,int val){
+    if(ul > r || ur < l) return;
+
+    if(ul <= l && ur >= r){
+        seg[cur].val += val * (r - l + 1);
+        seg[cur].lazy += val;
+        return;
+    }
+
+    int mid = l + ((r - l) >> 1);
+    pushDown(cur,l,r);
+    update(cur * 2, l,mid,ul,ur,val);
+    update(cur * 2 + 1,mid + 1,r ,ul,ur,val);
+
+    seg[cur].val = seg[cur * 2].val + seg[cur * 2 + 1].val;
+}
 void solve(){
-    int q;cin >> n >> q;
+    cin >> n >> m;
+    seg.resize(n * 4 + 5);
     a.resize(n + 5);
-    for(int i = 1; i <= n; i++) cin >>a[i];
-    tree.resize(4*n + 5);
+    for(int i = 1; i <= n; i++) cin >> a[i];
     build(1,1,n);
-    while(q--){
+    for(int i = 0; i < m; i++){
         int op;cin >> op;
         if(op == 1){
-            int l,r,k;cin >> l >> r >> k;
-            update(1,1,n,l,r,k);
+            int x,y,k;cin >> x >> y >> k;
+            update(1,1,n,x,y,k);
         }
-        else {
-            int l,r;cin >> l >> r;
-            cout << query(1,1,n,l,r) << endl;
+        else{
+            int x,y;cin >> x >> y;
+            cout << query(1,1,n,x,y) << endl;;
         }
     }
 }

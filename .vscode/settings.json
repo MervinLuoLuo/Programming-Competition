@@ -132,7 +132,10 @@
     "flat_set": "cpp",
     "ranges": "cpp",
     "span": "cpp",
-    "stacktrace": "cpp"
+    "stacktrace": "cpp",
+    "format": "cpp",
+    "generator": "cpp",
+    "text_encoding": "cpp"
   },
   "commentTranslate.targetLanguage": "zh-CN",
   "commentTranslate.hover.enabled": false
