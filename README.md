@@ -1,6 +1,8 @@
 # MervinLuo's Programming-Competition Record
 ---
-随便乱写的,记录一下写过的题
+随便乱写的,记录一下写过的题<br>
+可以关注一下我的[知乎题解](https://www.zhihu.com/people/52-96-23-77-28)吗👆🤓
+
 ---
 那这里给大家唱首歌吧
 ## 《Lemon》--时代少年团
