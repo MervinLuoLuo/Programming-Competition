@@ -1,0 +1,1 @@
+{"name":"Local: 2041 B","url":"f:\\C++Project\\CodeForces\\Practice\\2041 B. Bowling Frame.cpp","tests":[{"id":1752143209117,"input":"4\n1 2\n3 2\n3 3\n12 0","output":"2\n2\n3\n4\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\CodeForces\\Practice\\2041 B. Bowling Frame.cpp","group":"local","local":true}

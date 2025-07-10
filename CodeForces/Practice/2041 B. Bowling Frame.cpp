@@ -10,7 +10,10 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    
+    int w,b;cin >> w >> b;
+    int ans = 0;
+    while((ans + 1) * (ans + 2) / 2 <= w + b) ans++;
+    cout << ans << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
