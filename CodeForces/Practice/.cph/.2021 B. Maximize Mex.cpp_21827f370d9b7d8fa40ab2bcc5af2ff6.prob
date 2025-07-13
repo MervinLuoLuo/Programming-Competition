@@ -1,0 +1,1 @@
+{"name":"Local: 2021 B","url":"f:\\C++Project\\CodeForces\\Practice\\2021 B. Maximize Mex.cpp","tests":[{"id":1752392284567,"input":"3\n6 3\n0 3 2 1 5 2\n6 2\n1 3 4 1 0 2\n4 5\n2 5 10 3\n","output":"4\n6\n0\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\CodeForces\\Practice\\2021 B. Maximize Mex.cpp","group":"local","local":true}
