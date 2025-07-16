@@ -9,16 +9,10 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    int a,b;cin >> a >> b;
-    int n = abs(a * a - b * b);
-    cout << (n - 1) / 2 + max(n / 4 - 1,0LL) << endl;
+    
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    int t;
-    cin >> t;
-    while(t--){
-        solve();
-    }
+    solve();
     return 0;
 }
