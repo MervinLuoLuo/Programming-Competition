@@ -7,48 +7,41 @@
 using namespace std;
 const int INF = 1e18;
 const int maxn = 1e9;
-void sor(int c,int n,int *ran,int *f){
-    int num[n],max=0,m;
-    for(int i=1;i<c;i++)
-        num[i]=ran[i]-ran[i-1];
-    for(int i=1;i<c;i++){
-        if(max<num[i]){
-            max=num[i];
-            m=i;
-        }
-    }
-    f[ran[m-1]+1]=2;
-}
+
+class Node{
+    public:
+    int stat = 0;
+    int t = -1;
+};
 void solve(){
-    int sum=0,c=1,n,t0;
-    cin >> n >> t0;
-    int f[n],ran[n];
-    for(int i=0;i<n;i++)
-        cin >> f[i];
-    for(int i=0;i<n;i++){
-        if(f[i]==0)sum+=1;
-        else {
-            ran[c]=i;
-            c++;
-        }
-        if(c==2)f[ran[c-1]+1]=2;
-        else sor(c,n,ran,f);
-    }
-    for(int i=0;i<t0;i++){
-        for(int j=1;j<c;j++){
-            if(f[ran[j]+1]==2)continue;
-            else f[ran[j]+1]=1;
-            if(f[ran[j]-1]==2)continue;
-            else f[ran[j]-1]=1;
-            if(ran[j]==0)f[n]=1;
-            if(ran[j]==n)f[0]=1;
+    int n,t;cin >> n >> t;
+    string s;cin >> s;
+    
+    //环形数组处理
+    vector<int> a(2 * n + 5);
+    for(int i = 0; i < n; i++){
+        if(s[i] == '1'){
+            a[max(i - t, 0LL)]++;
+            a[min(i + t + 1,2*n)]--;
+            a[max(i + n - t,0LL)]++;
+            a[min(i + n + t + 1,2 * n)]--;
         }
     }
-    int ans=0;
-    for(int i=0;i<n;i++){
-        if(f[i]==0)ans+=1;
+
+    for(int i = 0; i < 2 * n; i++) a[i + 1] += a[i];
+    int ans = 0;
+    for(int i = 0; i <n ; i++){
+        if(a[i] == 0 && a[i + n] == 0) ans++;
     }
-    cout << ans << endl;
+
+    int cnt = 0, res = 0;
+    for(int i = 0; i <2 * n ;i++){
+        if(s[i % n] == '1') cnt=0;
+        else cnt++;
+        res = max(res,cnt);
+    }
+
+    cout << ans + max(max(0LL, res - t - 1) - max(0LL, res - 2 * t), 0LL) << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
