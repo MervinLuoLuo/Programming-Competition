@@ -1,0 +1,1 @@
+{"name":"Local: 1990 B","url":"f:\\C++Project\\CodeForces\\Practice\\1990 B. Array Craft.cpp","tests":[{"id":1753540937252,"input":"3\n2 2 1\n4 4 3\n6 5 1\n","output":"1 1\n1 -1 1 1\n1 1 -1 1 1 -1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\CodeForces\\Practice\\1990 B. Array Craft.cpp","group":"local","local":true}

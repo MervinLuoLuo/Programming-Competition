@@ -10,8 +10,8 @@ const int maxn = 1e9;
 int n,m,k;
 vector<vector<int>> g, vis1,vis2,trap,dist;
 
-const int dx[] = {0, 0, 1};
-const int dy[] = {1,-1,0};
+const int dy[] = {0, 0, 1};
+const int dx[] = {1,-1,0};
 
 void bfs(int x,int y){
     queue<pii> q;
