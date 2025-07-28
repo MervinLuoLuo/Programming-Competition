@@ -9,20 +9,20 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    int n,c;cin >> n >> c;
-    vector<int> a;
-    int ans = 0;
-    for(int i = 0; i < n; i++){
-        int x;cin >> x;
-        if(x > c) ans++;
-        else a.push_back(x);
-    }
-    n = a.size();
-    sort(a.begin(),a.end(),greater<int>());
-    int cnt = 0;
-    for(int i = 0; i < n; i++){
-        if(a[i] * (int)pow(2,cnt) > c) {ans++;continue;}
-        cnt++;
+    int n;cin >> n;
+    vector<int> a(n);
+    for(int &x : a) cin >> x;
+    string ans = "";
+    int l = 0, r = n - 1;
+    for(int i = 1; i <= n; i++){
+        if(i & 1){
+            if(a[l] <= a[r]) {ans +="L";l++;}
+            else {ans +="R";r--;}
+        }
+        else{
+            if(a[l] <= a[r]){ans += "R";r--;}
+            else {ans +='L';l++;}
+        }
     }
     cout << ans << endl;
 }
