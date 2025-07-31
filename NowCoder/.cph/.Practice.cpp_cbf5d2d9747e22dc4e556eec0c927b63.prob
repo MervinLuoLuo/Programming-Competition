@@ -1,1 +1,1 @@
-{"name":"Local: Practice","url":"f:\\C++Project\\NowCoder\\Practice.cpp","tests":[{"id":1752726562338,"input":"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\NowCoder\\Practice.cpp","group":"local","local":true}
+{"name":"Local: Practice","url":"f:\\C++Project\\NowCoder\\Practice.cpp","tests":[{"id":1752726562338,"input":"56\n67\n100\n123","output":"E\nD\nA\nScore is error!\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\NowCoder\\Practice.cpp","group":"local","local":true}

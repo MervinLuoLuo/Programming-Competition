@@ -1,3 +1,4 @@
+/*https://codeforces.com/problemset/problem/2038/J*/
 #include <bits/stdc++.h>
 #define endl '\n'
 #define yes cout << "YES" << endl
@@ -14,6 +15,10 @@ void solve(){
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    solve();
+    int t;
+    cin >> t;
+    while(t--){
+        solve();
+    }
     return 0;
 }
