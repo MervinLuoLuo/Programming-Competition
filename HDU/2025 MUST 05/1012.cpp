@@ -11,11 +11,19 @@ const int maxn = 1e9;
 
 void solve(){
     int n;cin >> n;
-    int ans = 0;
+    vector<int> a(n),b(n);
+    for(int & x : a) cin >> x;    
+    for(int & x : b) cin >> x;
+    vector<int> f1(n),f2(n);
     for(int i = 0; i < n; i++){
-        int x;cin >> x;
-        ans += x + (x == 0);
+        f1[i] = a[i] - b[i];
+        f2[i] = a[i] + b[i];
     }
+    int ans = INF;
+    sort(f1.begin(),f1.end());
+    for(int i = 1; i < n; i++) ans = min(ans, f1[i] - f1[i - 1]);
+    sort(f2.begin(),f2.end());
+    for(int i = 1; i < n; i++) ans = min(ans,f2[i] - f2[i - 1]);
     cout << ans << endl;
 }
 signed main(){

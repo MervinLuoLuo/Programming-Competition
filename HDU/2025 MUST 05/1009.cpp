@@ -11,12 +11,17 @@ const int maxn = 1e9;
 
 void solve(){
     int n;cin >> n;
-    int ans = 0;
+    vector<int> a(n),b(n),posb(n + 1);
+    for(int &x : a) cin >> x;
     for(int i = 0; i < n; i++){
-        int x;cin >> x;
-        ans += x + (x == 0);
+        cin >> b[i];
+        posb[b[i]] = i;
     }
-    cout << ans << endl;
+    int k = 1;
+    for(int i = 0;i < n - 1; i++){
+        if(posb[a[i + 1]] != posb[a[i]] + 1) k++;
+    }
+    cout << k << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
