@@ -9,9 +9,19 @@
 using namespace std;
 const int INF = 1e18;
 const int maxn = 1e9;
-
+int wait = 1;
 void solve(){
-    
+    char c;
+    int x;
+    cin >> c >> x;
+    if(c == 'P') wait += x;
+    else{
+        if(x >= wait) yes;
+        else no;
+        wait = max(wait - x, 1LL);
+        if(wait == 0) wait++;
+    }
+    // cout << wait << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
