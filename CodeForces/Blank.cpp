@@ -10,17 +10,14 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    int n;cin >> n;
-    int res = 1;
-    int k = 0;
-    while(res <= n){
-        k++;
-        res <<= 1;
-    }
-    cout << k - 1 << endl;
+    
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    solve();
+    int t;
+    cin >> t;
+    while(t--){
+        solve();
+    }
     return 0;
 }
