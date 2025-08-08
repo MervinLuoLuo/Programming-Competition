@@ -1,0 +1,1 @@
+{"name":"Local: 1009","url":"f:\\C++Project\\HDU\\2025 MUST 07\\1009.cpp","tests":[{"id":1754628284894,"input":"4\n1 2025 2075\n2 2025 2075\n50 2025 2025\n366 2045 2050","output":"9\n45\n0\n1565"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\HDU\\2025 MUST 07\\1009.cpp","group":"local","local":true}
