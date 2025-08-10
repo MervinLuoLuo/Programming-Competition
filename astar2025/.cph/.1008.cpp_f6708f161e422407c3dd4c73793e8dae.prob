@@ -1,0 +1,1 @@
+{"name":"Local: 1008","url":"f:\\C++Project\\astar2025\\1008.cpp","tests":[{"id":1754807240073,"input":"3\n2 4 2\n3 10\n5 2 1\n1 2 2 1 1\n5 3 8\n0 1 2 3 2","output":"2\n2\n9"},{"id":1754810872659,"input":"1\n5 3 8\n0 1 2 3 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\astar2025\\1008.cpp","group":"local","local":true}
