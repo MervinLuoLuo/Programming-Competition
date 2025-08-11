@@ -1,0 +1,1 @@
+{"name":"Local: 2025 A","url":"f:\\C++Project\\CodeForces\\Practice\\2025 A. Two Screens.cpp","tests":[{"id":1754901538098,"input":"3\nGARAGE\nGARAGEFORSALE\nABCDE\nAABCD\nTRAINING\nDRAINING\n","output":"14\n10\n16\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\CodeForces\\Practice\\2025 A. Two Screens.cpp","group":"local","local":true}
