@@ -10,16 +10,11 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    int n;cin >> n;
-    if(n & 1){
-        for(int i = 1; i <= (n - 1) / 2; i++) cout << "-1 3 ";
-        cout << -1 << endl;
-    }
-    else{
-        for(int i = 1; i <= (n - 2) / 2; i++) cout << "-1 3 ";
-        cout << "-1 2" << endl;
-    }
-
+    int a,b,c,d,e,f,g,h;cin >> a >> b >> c >> d >> e >> f >> g >> h;
+    int sx = a + c, sy = b + d,tx = e + g,ty = f + h;
+    int dx = abs(sx - tx),dy = abs(sy - ty);
+    int ans = max(dx,dy);
+    cout << ans << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);

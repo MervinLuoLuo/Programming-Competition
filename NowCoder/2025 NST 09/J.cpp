@@ -10,21 +10,16 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    int n;cin >> n;
-    if(n & 1){
-        for(int i = 1; i <= (n - 1) / 2; i++) cout << "-1 3 ";
-        cout << -1 << endl;
-    }
-    else{
-        for(int i = 1; i <= (n - 2) / 2; i++) cout << "-1 3 ";
-        cout << "-1 2" << endl;
-    }
-
+    string s;getline(cin,s);
+    s = s + " nya";
+    cout << s << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
     int t;
     cin >> t;
+    cin.ignore();
+    cout << t << " nya" << endl;
     while(t--){
         solve();
     }

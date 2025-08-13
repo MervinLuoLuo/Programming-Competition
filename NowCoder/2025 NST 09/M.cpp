@@ -9,17 +9,24 @@ using namespace std;
 const int INF = 1e18;
 const int maxn = 1e9;
 
+int dsum(int x){
+    int sum = 0;
+    while(x){
+        sum += x % 10;
+        x /= 10;
+    }
+    return sum;
+}
 void solve(){
     int n;cin >> n;
-    if(n & 1){
-        for(int i = 1; i <= (n - 1) / 2; i++) cout << "-1 3 ";
-        cout << -1 << endl;
+    int ans = -1;
+    for(int k = 1; k <= 12; k++){
+        int a = 1;
+        for(int i = 0; i < k;i++) a = a * 10 + 9;
+        a /= 10;
+        if(n * dsum(a) == dsum(n * a)){ans = a;break;}
     }
-    else{
-        for(int i = 1; i <= (n - 2) / 2; i++) cout << "-1 3 ";
-        cout << "-1 2" << endl;
-    }
-
+    cout << ans << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);

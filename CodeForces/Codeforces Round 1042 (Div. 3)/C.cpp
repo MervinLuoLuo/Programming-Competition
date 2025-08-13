@@ -10,15 +10,22 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    int n;cin >> n;
-    if(n & 1){
-        for(int i = 1; i <= (n - 1) / 2; i++) cout << "-1 3 ";
-        cout << -1 << endl;
+    int n,k;cin >> n >> k;
+    vector<int> S(n),T(n);
+    for(int i = 0; i < n; i++){
+        cin >> S[i];
+        S[i] = min(S[i] % k,(k - S[i] % k) % k);
     }
-    else{
-        for(int i = 1; i <= (n - 2) / 2; i++) cout << "-1 3 ";
-        cout << "-1 2" << endl;
+    for(int i = 0; i < n; i++){
+        cin >> T[i];
+        T[i] = min(T[i] % k, (k - T[i] % k) % k);
     }
+    sort(S.begin(),S.end());
+    sort(T.begin(),T.end());
+    for(int i = 0; i < n; i++){
+        if(S[i] != T[i]){no;return;}
+    }
+    yes;
 
 }
 signed main(){
