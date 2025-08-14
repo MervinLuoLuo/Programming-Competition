@@ -1,0 +1,1 @@
+{"name":"Local: I","url":"f:\\C++Project\\NowCoder\\2025 NST 10\\I.cpp","tests":[{"id":1755149088085,"input":"4 5","output":"YES\n1 9 14 15 8\n2 10 3 16 17\n20 19 4 5 18\n12 11 13 6 7"},{"id":1755149111165,"input":"4 6","output":"NO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\C++Project\\NowCoder\\2025 NST 10\\I.cpp","group":"local","local":true}
