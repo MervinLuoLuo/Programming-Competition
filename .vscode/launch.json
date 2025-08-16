@@ -7,9 +7,9 @@
       "request": "launch",
       "args": [],
       "stopAtEntry": false,
-      "externalConsole": true,
-      "cwd": "e:/C++Project/NewCoder/2025牛客寒假算法基础集训营1",
-      "program": "e:/C++Project/NewCoder/2025牛客寒假算法基础集训营1/build/Debug/outDebug",
+      "externalConsole": false,
+      "cwd": "/home/mervinluo/桌面/Programming-Competition/Practice",
+      "program": "/home/mervinluo/桌面/Programming-Competition/Practice/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

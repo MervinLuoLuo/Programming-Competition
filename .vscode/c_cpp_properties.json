@@ -1,48 +1,18 @@
 {
-    "configurations": [
-        {
-            "name": "windows-gcc-x64",
-            "includePath": [
-                "${workspaceFolder}/**"
-            ],
-            "compilerPath": "D:/Msys2/ucrt64/bin/g++.exe",
-            "cStandard": "${default}",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-x64",
-            "compilerArgs": [
-                "-std=c++2a"
-            ]
-        },
-        {
-            "name": "windows-g++-x64",
-            "defines": [
-                "_DEBUG",
-                "UNICODE",
-                "_UNICODE"
-            ],
-            "compilerPath": "D:/Msys2/ucrt64/bin/g++.exe",
-            "cStandard": "c23",
-            "cppStandard": "c++23",
-            "intelliSenseMode": "windows-gcc-x64",
-            "compilerPathInCppPropertiesJson": "D:\\mingw64\\bin\\gcc.exe",
-            "mergeConfigurations": false,
-            "browse": {
-                "path": [
-                    "e:/C++Project/**",
-                    "${workspaceFolder}"
-                ],
-                "limitSymbolsToIncludedHeaders": true
-            },
-            "includePath": [
-                "${workspaceFolder}/**",
-                "D:/Msys2/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include/c++/15.1.0",
-                "D:/Msys2/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include/c++/15.1.0/x86_64-w64-mingw32",
-                "D:/Msys2/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include/c++/15.1.0/backward",
-                "D:/Msys2/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/include",
-                "D:/Msys2/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/../../../../include",
-                "D:/Msys2/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/15.1.0/include-fixed"
-            ]
-        }
-    ],
-    "version": 4
+  "configurations": [
+    {
+      "name": "linux-gcc-x64",
+      "includePath": [
+        "${workspaceFolder}/**"
+      ],
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "${default}",
+      "cppStandard": "c++23",
+      "intelliSenseMode": "linux-gcc-x64",
+      "compilerArgs": [
+        ""
+      ]
+    }
+  ],
+  "version": 4
 }
