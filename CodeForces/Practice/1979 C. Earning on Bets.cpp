@@ -10,7 +10,12 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    
+    int n,k;cin >> n  >> k;
+    int c = ((n + 1) >> 1);
+    if(n >= k) c -= ((n - k + 1) >> 1);
+    c %= 2;c ^= 1;
+    if(c) yes;
+    else no;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
