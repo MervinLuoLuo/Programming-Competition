@@ -13,7 +13,7 @@ void solve(){
     int n;cin >> n;
     map<int,vector<int>> layer;
     vector<int> path;
-    int start = 0;
+    int k = 0;
 
     //找起点
     for(int i = 1; i <= n; i++){
@@ -25,21 +25,21 @@ void solve(){
 
         int x;cin >> x;
         layer[x].push_back(i);
-        if(x > start){
-            start = x;path = {i};
+        if(x > k){
+            k = x;path = {i};
         }
     }
 
     //回溯路径
-    for(int d = start - 1;d >= 1; d--){
+    for(int d = k - 1;d >= 1; d--){
         for(int cand : layer[d]){
-            cout << "? " << path.back() << "2 " << path.back() << " " << cand << endl;
+            cout << "? " << path.back() << " 2 " << path.back() << " " << cand << endl;
             cout.flush();
             int x;cin >> x;
             if(x == 2){path.push_back(cand);break;}
         }   
     }
-    
+
     cout << "! " << path.size();
     for(int i : path) cout << " " << i;
     cout << endl;
