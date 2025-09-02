@@ -1,0 +1,1 @@
+{"name":"Local: 198","url":"/home/mervinluo/桌面/Programming-Competition/Leetcode/198. 打家劫舍.cpp","tests":[{"id":1756822047306,"input":"4\n1 2 3 1","output":"4"},{"id":1756822064792,"input":"5\n2 7 9 3 1","output":"12"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/mervinluo/桌面/Programming-Competition/Leetcode/198. 打家劫舍.cpp","group":"local","local":true}
