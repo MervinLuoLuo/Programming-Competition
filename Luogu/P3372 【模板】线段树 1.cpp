@@ -73,7 +73,7 @@ void update(int cur,int l,int r,int ul,int ur,int val){
 
     seg[cur].val = seg[cur * 2].val + seg[cur * 2 + 1].val;
 }
-void solve(){
+void solveseg(){
     cin >> n >> m;
     seg.resize(n * 4 + 5);
     a.resize(n + 5);
@@ -91,8 +91,64 @@ void solve(){
         }
     }
 }
+
+//=================================================================
+
+vector<int> tree1,tree2;
+
+int lowbit(int x){
+    return x & (-x);
+}
+
+void add(vector<int> &tree,int i,int k){
+    while(i <= n){
+        tree[i] += k;
+        i += lowbit(i);
+    }
+}
+
+void add(int l,int r,int k){
+    add(tree1,l,k);
+    add(tree1,r + 1,-k);
+    add(tree2, l, (l - 1) * k);
+    add(tree2,r + 1,-(r * k));
+}
+
+int sum(const vector<int> &tree,int i){
+    int res = 0 ;
+    while(i > 0){
+        res += tree[i];
+        i -= lowbit(i);
+    }
+    return res;
+}
+
+int sum(int l,int r){
+    return sum(tree1,r) * r - sum(tree2,r) - (sum(tree1, l - 1) * (l - 1) - sum(tree2,l - 1));
+}
+
+void solvebit(){
+    cin >> n >> m;
+    tree1.assign(n + 1,0);tree2.assign(n + 1,0);
+    for(int i = 1; i <= n; i++){
+        int x;cin >> x;
+        add(i,i,x);
+    }
+    while(m--){
+        int op,x,y;cin >> op >> x >> y;
+        if(op == 1){
+            int k;cin >> k;
+            add(x,y,k);
+        }
+        else{
+            cout << sum(x,y) << endl;
+        }
+    }
+}
+
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    solve();
+    // solveseg();
+    solvebit();
     return 0;
 }
