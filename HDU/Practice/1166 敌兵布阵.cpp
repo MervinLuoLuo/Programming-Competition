@@ -11,7 +11,7 @@ const int maxn = 1e9;
 
 template<typename T>
 struct BIT{
-#ifndef lowbit
+#ifndef lowbit  
 #define lowbit(x) (x & (-x))
 #endif
     static const int MAX_SIZE = 1e3 + 50;

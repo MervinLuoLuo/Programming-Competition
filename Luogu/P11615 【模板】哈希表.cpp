@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #define endl '\n'
 #define yes cout << "YES" << endl
 #define no cout << "NO" << endl
@@ -6,15 +6,14 @@
 #define pii pair<int,int>
 #define vii vector<vector<int>>
 using namespace std;
-const int MAXN = 1e8;
-const int INF = 1e18;
-// using i128 =  __int128_t;
 using ull = unsigned long long;
-const ull MOD = (1 << 26);
+const int INF = 1e18;
+const int maxn = 1e9;
+const ull N = 20000003;
 
 char buf[1<<23],*p1=buf,*p2=buf;
 #define gc() (p1==p2&&(p2=(p1=buf)+fread(buf,1,1<<21,stdin),p1==p2)?EOF:*p1++)
-inline unsigned long long rd() {//读入一个 64 位无符号整数
+inline unsigned long long rd() {
 	unsigned long long x=0;
 	char ch=gc();
 	while(!isdigit(ch))ch=gc();
@@ -22,51 +21,50 @@ inline unsigned long long rd() {//读入一个 64 位无符号整数
 	return x;
 }
 
-const ull N = 1e7 + 19;
-struct Hash_table{
-    const int null = 0x3f3f3f3f;
-    ull h[N],kk[N],ex[N];
-    void init() {
-        memset(h,0,sizeof(h));
-        memset(kk,0,sizeof(kk));
-        memset(ex,0,sizeof(ex));
-    }
 
-    ull find(int x){
-        int k = (x % N + N) % N;
-        while(ex[k]){
-            if(kk[k] == x) return h[k];
-            k++;
-            if(k == N) k = 0;
+struct HashTable{
+    vector<ull> key,val;
+    vector<int> vis;
+    int timer = 0;
+    HashTable() : key(N),val(N),vis(N,0){}
+
+    void init(){++timer;}
+
+    ull find(ull x){
+        ull k = x % N;
+        while(vis[k] == timer){
+            if(key[k] == x) return val[k];
+            if(++k == N) k = 0;
         }
         return 0;
     }
 
-    void insert(int x,int y){
-        int k = (x % N + N) % N;
-        while(ex[k]){
-            if(kk[k] == x) break;
-            k++;
-            if(k == N) k = 0;
+    void insert(ull x, ull y){
+        ull k = x % N;
+        while(vis[k] == timer){
+            if(key[k] == x){
+                val[k] = y;return;
+            }
+            if(++k == N) k = 0;
         }
-        kk[k] = x;h[k] = y;ex[k] = 1;
+        vis[k] = timer;
+        key[k] = x;
+        val[k] = y;
     }
 };
-
 void solve(){
-    ull n; n = rd();
-    Hash_table ht;
+    ull n;n = rd();
+    HashTable ht;
     ht.init();
-    int ans = 0;
-    for(int i = 0; i < n; i++){
+    ull ans = 0;
+    for(int i = 1; i <= n; i++){
         ull x,y;x = rd();y = rd();
-        ull fx = (ht.find(x) * i) % MOD;
-        ans = (ans + fx) % MOD;
+        ull res = ht.find(x);
+        ans += res * (ull)i;
         ht.insert(x,y);
     }
     cout << ans << endl;
 }
- 
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
     solve();
