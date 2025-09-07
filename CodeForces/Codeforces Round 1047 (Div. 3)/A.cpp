@@ -9,22 +9,21 @@ using namespace std;
 const int INF = 1e18;
 const int maxn = 1e9;
 
-int gcd(int a,int b){
-     while (b != 0) {
-        int tmp = a % b;
-        a = b;
-        b = tmp;
-    }
-    return a >= 0 ? a : -a;
-}
-
 void solve(){
-    string s;cin >> s;
-    
-
+    int k,x;cin >> k >> x;
+    for(int i = 0; i < k; i++){
+        if((x - 1) % 3 == 0 && (((x - 1) / 3) & 1)) x = (x - 1) / 3;
+        else x *= 2;
+        // cout << x << " ";
+    }
+    cout << x << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
-    solve();
+    int t;
+    cin >> t;
+    while(t--){
+        solve();
+    }
     return 0;
 }
