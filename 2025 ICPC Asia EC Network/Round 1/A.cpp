@@ -9,116 +9,118 @@ using namespace std;
 const int INF = 1e18;
 const int maxn = 1e9;
 
-struct Team{
+//分开记录提交
+struct Submission {
     string name;
-    int hpent = 0;
-    int lpent = 0;
-    int pass = 0;
-    vector<vector<pii>> que;
-    void ini(){
-        que.resize(26);
+    int q;
+    int t;
+    string state;
+};
+
+struct Team {
+    string name;
+    int lpass = 0; // 确定通过题数
+    int ldirt = 0; // 确定罚时
+    vector<int> solved;   // 题目状态
+    vector<int> penalty;  // 该题累积罚时
+    vector<Submission> unknown; // Unknown 提交
+    void init() {
+        solved.assign(26, 0);
+        penalty.assign(26, 0);
     }
 };
 
-bool cmp(Team a,Team b){
-    if(a.hpass == b.hpass){
-        return a.hpent < b.hpent;
+void solve() {
+    int n; cin >> n;
+    vector<Submission> subs(n);
+    for (int i = 0; i < n; i++) {
+        string name; char q; int t; string st;
+        cin >> name >> q >> t >> st;
+        subs[i] = {name, q - 'A', t, st};
     }
-    return a.pass < b.pass;
-}
 
-void solve(){
-    int n;cin >> n;
-    map<string,int> mp;
+    // 按时间排序
+    sort(subs.begin(), subs.end(), [](auto &a, auto &b) {
+        return a.t < b.t;
+    });
+
+    map<string,int> mp;// 队名映射为编号
     vector<Team> team;
-    team.push_back({});
-    int size = 1;
-    for(int i = 1; i <= n; i++){
-        string name;cin >> name;
-        if(mp[name] == 0) {
-            mp[name] = size;
+    int idx = 0;
+
+    // 遍历提交
+    for (auto &sub : subs) {
+        if (!mp.count(sub.name)) {
+            mp[sub.name] = ++idx;
             team.push_back({});
-            team.back().name = name;
-            team[size].ini();
-            size ++;
+            team.back().name = sub.name;
+            team.back().init();
         }
-        int cur = mp[name];
-        char q;cin >> q;
-        int time;cin >> time;
-        string s;cin >> s;
-        int stat = 0;
-        if(s == "Accepted") stat = 1;
-        else if(s == "Rejected") stat = 0;
-        else if(s == "Unknown") stat = 2;
-        int qu = q - 'A';
+        int id = mp[sub.name] - 1;
 
-        //输入不是按时间递增,全部都得存
-        team[cur].que[qu].push_back({stat,time});
-    }
-    
-    //排序找出第一个 AC / Unknown
-    for(int i = 1; i <= size; i++){
-        for(int j = 0; j < 26; j++){
-            sort(team[i].que[j].begin(),team[i].que[j].end());
+        if (sub.state == "Unknown") {
+            team[id].unknown.push_back(sub);
+            continue;
         }
-    }
 
-    // vector<int> hscore(size + 1, 0),lscore(size + 1, maxn);
-
-    //遍历每个队的每个题目情况,计算最高 dirt 和 最低 dirt
-    for(int i = 1; i <= size; i++){
-        Team cur = team[i];
-        for(int j = 0,tpent = 0; j < 26; j++){
-            //没交过或者最后只有 WA 就跳过
-            if(cur.que[j].empty()) continue;
-            if(cur.que[j].back().first == 0) continue;
-            //算罚时
-            int k = 0;
-            while(cur.que[j][k].first == 0){
-                tpent += cur.que[j][k].second + 20;
-                k++;
+        if (sub.state == "Rejected") {
+            if (!team[id].solved[sub.q]) {
+                team[id].penalty[sub.q] += 20;
             }
-            team[i].hpent += tpent, team[i].lpent += tpent;
-            //第一个是 AC 就直接算两个
-            if(cur.que[j][k].first == 1){
-                team[i].hpent += cur.que[j][k].second;
-                team[i].lpent += cur.que[j][k].second;
-                team[i].pass ++;
-                team[i].pass ++;
-            }
-            //第一个是 Un 就只算 hpent
-            else if(cur.que[j][k].first == 2){
-                team[i].hpent += cur.que[j][k].second;
-                team[i].pass ++;
+        } else if (sub.state == "Accepted") {
+            if (!team[id].solved[sub.q]) {
+                team[id].solved[sub.q] = 1;
+                team[id].lpass++;
+                team[id].ldirt += team[id].penalty[sub.q] + sub.t;
             }
         }
     }
 
-    sort(team.begin(),team.end(),cmp);
-    
-    vector<string> ans;
-    int basep = team.back().pass;
-    int base = team.back().hpent;
-
-    //冠军条件:过题数最大 && lpent少于最高的hpent
-    int i = size;
-    for(; i >= 1; i--){
-        if(team[i].pass < basep) break;
-
+    // 找通过题数最多且罚时最少
+    int maxpass = 0, mindirt = 1e18;
+    for (auto &t : team) {
+        if (t.lpass > maxpass) {
+            maxpass = t.lpass;
+            mindirt = t.ldirt;
+        } else if (t.lpass == maxpass) {
+            mindirt = min(mindirt, t.ldirt);
+        }
     }
 
-    
+    // 模拟 Unknown
+    set<string> ans;
+    for (auto &t : team) {
+        if (t.lpass == maxpass && t.ldirt == mindirt) {
+            ans.insert(t.name);
+            continue;
+        }
+        int pro = t.lpass;
+        int pen = t.ldirt;
+        auto solved = t.solved;
+        auto penalty = t.penalty;
 
-    for(auto it : ans) cout << it << " ";
+        for (auto &sub : t.unknown) {
+            if (!solved[sub.q]) {
+                solved[sub.q] = 1;
+                pro++;
+                pen += penalty[sub.q] + sub.t;
+            }
+        }
+
+        if (pro > maxpass || (pro == maxpass && pen <= mindirt)) {
+            ans.insert(t.name);
+        }
+    }
+
+    for (auto &s : ans) cout << s << " ";
     cout << endl;
-
 }
-signed main(){
-    ios::sync_with_stdio(0);cin.tie(0);
-    int t;
-    cin >> t;
-    while(t--){
+
+signed main() {
+    ios::sync_with_stdio(0); cin.tie(0);
+    int t; cin >> t;
+    while (t--){
         solve();
-    }
+    } 
     return 0;
 }
