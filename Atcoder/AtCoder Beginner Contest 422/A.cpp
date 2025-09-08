@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+#define yes cout << "YES" << endl
+#define no cout << "NO" << endl
+#define int long long
+#define pii pair<int,int>
+#define vii vector<vector<int>>
+using namespace std;
+const int INF = 1e18;
+const int maxn = 1e9;
+
+void solve(){
+    string s;cin >> s;
+    int i = s[0] - '0';
+    int j = s[2] - '0';
+    if(j < 8) cout << i << "-" << j + 1 << endl;
+    else if(i < 8 && j == 8) cout << i + 1 << "-1" << endl;
+    else if(i == 8 && j == 8) cout << "8-8" << endl;
+
+
+}
+signed main(){
+    ios::sync_with_stdio(0);cin.tie(0);
+    solve();
+    return 0;
+}
