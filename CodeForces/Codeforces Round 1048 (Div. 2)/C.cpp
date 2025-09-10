@@ -11,7 +11,7 @@ const int maxn = 1e9;
 
 void solve(){
     int k,x;cin >> k >> x;
-    int kk = 111 << k;
+    int kk = 1LL << k;
     int y = kk * 2 - x;
     if(x == 0 || x == 2 * kk){cout << -1 << endl;return;}
 
@@ -28,7 +28,7 @@ void solve(){
     }
 
     cout << ans.size() << endl;
-    for(auto it : ans) cout << it << " ";
+    for(int i = (int)ans.size() - 1; i >= 0; i--) cout << ans[i] << " ";
     cout << endl;
 }
 signed main(){
