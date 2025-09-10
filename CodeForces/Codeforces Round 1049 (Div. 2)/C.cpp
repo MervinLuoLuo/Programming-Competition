@@ -7,11 +7,10 @@
 #define vii vector<vector<int>>
 using namespace std;
 const int INF = 1e18;
-const int maxn = 1e7;
+const int maxn = 1e9;
 
 void solve(){
-    int x; cin >> x;
-    cout << 2 * x << endl;
+    
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
