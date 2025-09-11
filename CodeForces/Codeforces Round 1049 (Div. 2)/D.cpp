@@ -7,11 +7,21 @@
 #define vii vector<vector<int>>
 using namespace std;
 const int INF = 1e18;
-const int maxn = 1e7;
+const int maxn = 1e9;
 
 void solve(){
-    int x; cin >> x;
-    cout << 2 * x << endl;
+    int n;cin >> n;
+    vector<pii> L(n), R(n);
+    int ans = 0;
+    for(int i = 0; i < n; i++){
+        int l,r;cin >> l >> r;
+        L[i] = {l,i}; R[i] = {r,i};
+        ans += r - l;
+    }
+
+    sort(L.begin(),L.end(),auto[&](const pii &a,const pii &b){
+
+    });
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
