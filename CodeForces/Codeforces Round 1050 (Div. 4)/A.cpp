@@ -10,7 +10,9 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    
+    int x,n;cin >> x >> n;
+    if(n & 1) cout << x << endl;
+    else cout << 0 << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
