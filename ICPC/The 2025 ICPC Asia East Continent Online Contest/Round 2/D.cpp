@@ -8,12 +8,18 @@ const int MAXN = 1e8;
 const int INF = 1e18;
 const int MOD = 998244353;
 
+
 void solve(){
     int n;cin >> n;
     vector<int> a(n);
-    for(int &x : a) cin >> x;
+    for(int &x :a) cin >> x;
     sort(a.begin(),a.end());
-    
+    int ans = 0;
+    for(int i = 0; i < n; i++){
+        int add = (pow(3,i) + 1) / 2 * pow(2,n - i - 1);
+        ans += (add % MOD);
+    }
+    cout << ans << endl;
 }
 
 signed main(){
