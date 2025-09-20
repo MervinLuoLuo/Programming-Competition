@@ -10,14 +10,20 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    
+    int q;cin >> q;
+    priority_queue<int,vector<int>,greater<int>> pq;
+    while(q--){
+        int op;cin >> op;
+        if(op == 1){
+            int x;cin >> x;
+            pq.push(x);
+        }
+        else if(op == 2) cout << pq.top() << endl;
+        else pq.pop();
+    }
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
-    int t;
-    cin >> t;
-    while(t--){
-        solve();
-    }
+    solve();
     return 0;
 }
