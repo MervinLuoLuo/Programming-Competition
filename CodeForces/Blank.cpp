@@ -1,29 +1,40 @@
 #include <bits/stdc++.h>
-#define endl '\n'
-#define yes cout << "YES" << endl
-#define no cout << "NO" << endl
-#define int long long
-#define pii pair<int,int>
-#define vii vector<vector<int>>
 using namespace std;
-const int INF = 1e18;
-const int maxn = 1e9;
-
-void solve(){
-    int q;cin >> q;
-    priority_queue<int,vector<int>,greater<int>> pq;
-    while(q--){
-        int op;cin >> op;
-        if(op == 1){
-            int x;cin >> x;
-            pq.push(x);
-        }
-        else if(op == 2) cout << pq.top() << endl;
-        else pq.pop();
-    }
+ 
+void solve() {
+	int n; cin >> n;
+	string s; cin >> s;
+	bool ok = true;
+	bool curr = (s[0] == '1');
+	int cnt = (s[0] == '0' ? 1 : 0);
+    cout << "i = 0 " << curr << " " << cnt << endl;
+	for (int i = 1; i < n; i++) {
+		if (s[i] == '0')
+			cnt++;
+		// if (i == 0)
+			// continue;
+		if (s[i] == s[i-1] && s[i] == '0')
+			curr = false;
+		if (s[i] == s[i-1] && s[i] == '1') {
+			if (curr && cnt % 2 == 1)
+				ok = false;
+			curr = true;
+			cnt = 0;
+		}
+        cout << "i = "  << i << " " << curr << " " << cnt << endl; 
+	}
+	
+	if (curr && cnt % 2 == 1 && s[n-1] == '1')
+		ok = false;
+		
+	// cout << (ok ? "YES" : "NO") << "\n";
 }
-signed main(){
-    ios::sync_with_stdio(0);cin.tie(0);
-    solve();
-    return 0;
+ 
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	
+	int T; cin >> T;
+	while (T--)
+		solve();
 }
