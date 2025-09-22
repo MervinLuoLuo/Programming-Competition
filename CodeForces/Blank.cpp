@@ -1,40 +1,36 @@
 #include <bits/stdc++.h>
+#define endl '\n'
+#define yes cout << "YES" << endl
+#define no cout << "NO" << endl
+#define int long long
+#define pii pair<int,int>
+#define vii vector<vector<int>>
 using namespace std;
- 
-void solve() {
-	int n; cin >> n;
-	string s; cin >> s;
-	bool ok = true;
-	bool curr = (s[0] == '1');
-	int cnt = (s[0] == '0' ? 1 : 0);
-    cout << "i = 0 " << curr << " " << cnt << endl;
-	for (int i = 1; i < n; i++) {
-		if (s[i] == '0')
-			cnt++;
-		// if (i == 0)
-			// continue;
-		if (s[i] == s[i-1] && s[i] == '0')
-			curr = false;
-		if (s[i] == s[i-1] && s[i] == '1') {
-			if (curr && cnt % 2 == 1)
-				ok = false;
-			curr = true;
-			cnt = 0;
-		}
-        cout << "i = "  << i << " " << curr << " " << cnt << endl; 
-	}
-	
-	if (curr && cnt % 2 == 1 && s[n-1] == '1')
-		ok = false;
-		
-	// cout << (ok ? "YES" : "NO") << "\n";
+const int INF = 1e18;
+const int maxn = 1e9;
+
+bool isValid(vector<int>& a, vector<int>& b) {
+    stack<int> st;
+    int j = 0;
+    for (int i = 0; i < a.size(); i++) {
+        st.push(a[i]);
+        while (!st.empty() && st.top() == b[j]) {
+            st.pop();
+            j++;
+        }
+    }
+    return j == b.size();
 }
- 
-int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
-	
-	int T; cin >> T;
-	while (T--)
-		solve();
+
+void solve(){
+	int n = 6;
+	vector<int> a(n),b(n);
+	for(int &x : a) cin >> x;
+	for(int &x : b) cin >> x;
+	cout << isValid(a,b) <<endl;
+}
+signed main(){
+	ios::sync_with_stdio(0);cin.tie(0);
+	solve();
+	return 0;
 }
