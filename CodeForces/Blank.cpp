@@ -8,29 +8,28 @@
 using namespace std;
 const int INF = 1e18;
 const int maxn = 1e9;
+vii ans;
+int n,k;
+vector<int> path;
 
-bool isValid(vector<int>& a, vector<int>& b) {
-    stack<int> st;
-    int j = 0;
-    for (int i = 0; i < a.size(); i++) {
-        st.push(a[i]);
-        while (!st.empty() && st.top() == b[j]) {
-            st.pop();
-            j++;
-        }
+void dfs(int i){
+    if(path.size() == k){ans.push_back(path);return;}
+    for(int cur = i; cur <= n - (k - path.size()) + 1; cur++){
+        path.push_back(cur);
+        dfs(cur + 1);
+        path.pop_back();
     }
-    return j == b.size();
 }
-
 void solve(){
-	int n = 6;
-	vector<int> a(n),b(n);
-	for(int &x : a) cin >> x;
-	for(int &x : b) cin >> x;
-	cout << isValid(a,b) <<endl;
+    cin >> n >> k;
+    dfs(1);
+    for(int i = 0; i < ans.size();i++){
+        for(auto it : ans[i]) cout << it << " ";
+        cout << endl;
+    }
 }
 signed main(){
-	ios::sync_with_stdio(0);cin.tie(0);
-	solve();
-	return 0;
+    ios::sync_with_stdio(0);cin.tie(0);
+    solve();
+    return 0;
 }
