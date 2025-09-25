@@ -1,3 +1,4 @@
+/*https://codeforces.com/problemset/problem/2137/B*/
 #include <bits/stdc++.h>
 #define endl '\n'
 #define yes cout << "YES" << endl
@@ -9,23 +10,21 @@ using namespace std;
 const int INF = 1e18;
 const int maxn = 1e9;
 
-vii ans;
-int n,k;
-vector<int> path;
-
-void dfs(int i){
-    if(path.size() == k){ans.push_back(path);return;}
-    for(int cur = i; cur <= n - (k - path.size()) + 1; cur++){
-        path.push_back(cur);
-        dfs(cur + 1);
-        path.pop_back();
-    }
-}
 void solve(){
-    cout << 3 % 1 << endl;
+    int n;cin >> n;
+    vector<int> a(n);
+    for(int &x : a) cin >> x;
+    for(int i = 0; i < n; i++){
+        cout << n - a[i] + 1 << " ";
+    }
+    cout << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
-    solve();
+    int t;
+    cin >> t;
+    while(t--){
+        solve();
+    }
     return 0;
 }
