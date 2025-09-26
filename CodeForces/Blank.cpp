@@ -9,20 +9,10 @@ using namespace std;
 const int INF = 1e18;
 const int maxn = 1e9;
 
-vii ans;
-int n,k;
-vector<int> path;
-
-void dfs(int i){
-    if(path.size() == k){ans.push_back(path);return;}
-    for(int cur = i; cur <= n - (k - path.size()) + 1; cur++){
-        path.push_back(cur);
-        dfs(cur + 1);
-        path.pop_back();
-    }
-}
 void solve(){
-    cout << 3 % 1 << endl;
+    string s;
+    getline(cin,s);
+    cout << s << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
