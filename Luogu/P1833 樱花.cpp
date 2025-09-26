@@ -21,7 +21,7 @@ void solve(){
         scanf("%lld %lld %lld",&w[i],&val[i],&k[i]);
     }
 
-    vector<ll> dp(W + 1,0);
+    vector<ll> dp(W + 1,0); 
 
     for(int i = 1; i <= n;i++){
         if(k[i] == 0){
