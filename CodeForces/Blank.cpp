@@ -9,24 +9,18 @@ using namespace std;
 const int INF = 1e18;
 const int maxn = 1e9;
 
-string calc(int x){
-    string s = "";
-    while(x){
-        int cur = x % 2;
-        x /= 2;
-        char add = cur + '0';
-        s = s + add;
-    }
-    reverse(s.begin(),s.end());
-    return s;
-}
 void solve(){
     int n;cin >> n;
-    for(int s = n; ; s = (s - 1) & n){
-        if(s == 0) break;
-        string Bit = calc(s); 
-        cout << s << " " << Bit << endl;
-    }
+    vector<int> a(2 * n + 2);
+    for(int i = 1; i <= 2 * n; i++) cin >> a[i];
+
+    vector<int> ans(n + 1,0);
+    for(int i = 2; i <= 2 * n; i += 2) ans[1] = max(ans[1],a[i] - a[i - 1]);
+
+    ans[2] = a[2 * n] - a[1];
+    int add = 0;
+    for(int i = 3; i <= 2 * n - 1; i += 2) add = max(add,a[i] - a[i - 1]);
+    ans[2] += add;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
