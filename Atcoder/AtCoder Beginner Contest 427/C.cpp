@@ -10,6 +10,14 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
+    int n,m;cin >> n >> m;
+    vector<int> deg(n + 1, 0);
+    vii g(n + 1);
+    for(int i = 1; i <= m; i++){
+        int u,v;cin >> u >> v;
+        g[u].push_back(v);deg[u]++;
+        g[v].push_back(u);deg[v]++;
+    }
     
 }
 signed main(){

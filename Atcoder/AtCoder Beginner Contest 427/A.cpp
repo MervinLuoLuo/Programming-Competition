@@ -10,7 +10,10 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    
+    string s;cin >> s;
+    int n = s.size();
+    s.erase((n + 1) / 2 - 1,1);
+    cout << s << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
