@@ -13,18 +13,28 @@ void solve(){
     int n;cin >> n;
     vector<int> a(n + 1, 0);
     for(int i = 1; i <= n; i++) cin >> a[i];
-    sort(a.begin() + 1,a.end(),greater<int>());
+    sort(a.begin() + 1, a.end(), greater<int>());
+    vector<int> pre(n + 1, 0);
+    for(int i = 1; i <= n; i++) pre[i] = pre[i - 1] + a[i];
 
     vector<int> ans;
-    ans.push_back(0);ans.push_back(0);
-    int res = a[2],maxx = a[1];
-    for(int i = 3; i <= n; i++){
-        res += a[i];
-        if(res > maxx) ans.push_back(res + maxx);
+    for(int k = 1; k <= n; k++){
+        if(k == 1 || k == 2) {ans.push_back(0);continue;}
+        int sum = pre[k];
+        int maxe = a[1];
+
+        int l = 1;
+        while(maxe >= sum - maxe && k - l + 1 > 2){
+            sum -= maxe;
+            l++;
+            maxe = a[l];
+        }
+
+        if(maxe < sum - maxe) ans.push_back(sum);
         else ans.push_back(0);
     }
 
-    for(auto it : ans) cout << it << " ";
+    for(auto it : ans ) cout << it << " ";
     cout << endl;
 }
 signed main(){
