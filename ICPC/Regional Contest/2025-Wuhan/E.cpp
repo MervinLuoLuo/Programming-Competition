@@ -10,17 +10,14 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
-    priority_queue<int> pq;
-    int x;while(cin >> x && x != 0){
-        pq.push(x);
-    }
-    while(!pq.empty()){
-        cout << pq.top() << " ";
-        pq.pop(); 
-    }
+    
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
-    solve();
+    int t;
+    cin >> t;
+    while(t--){
+        solve();
+    }
     return 0;
 }
