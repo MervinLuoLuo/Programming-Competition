@@ -9,7 +9,7 @@ using namespace std;
 const int INF = 1e18;
 const int maxn = 1e9;
 
-void solve(){
+void solve1(){
     int n,K;cin >> n >> K;
     string s,t;cin >> s >> t;
     vector<int> p(n + 1, 0);
@@ -66,6 +66,39 @@ void solve(){
     }
     
 }
+
+void solve(){
+    int n,K;cin >> n >> K;
+    string s,t;cin >> s >> t;
+
+    vector<int> p(n, -1);
+    int l = n - 1,r = n - 1;
+    int ans = 0;
+    for( ; l >= 0; r--){//遍历每一个字符
+        while(l >= 0 && (s[l] != t[r] || l > r)) l--;
+        if(l >= 0 && s[l] == t[r]){
+            ans = max(ans, r - l);
+            p[r] = l;
+        }
+    }
+
+    auto it = find(p.begin(),p.end(), -1);//找无法得来的字符串
+    if(it != p.end() || ans > K){
+        cout << -1 << endl;
+        return;
+    }
+
+    cout << ans << endl;
+    for(int i = 0; i < ans ;i++){
+        for(int j = n - 1; j >= 0; j--){
+            if(p[j] == j) continue;//相同就跳过
+            s[p[j] + 1] = s[p[j]];
+            p[j]++;//滚动更新当前位置需要的字符的位置
+        }
+        cout << s << endl;
+    }
+}
+
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);
     int t;
