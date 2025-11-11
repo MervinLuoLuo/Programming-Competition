@@ -21,11 +21,8 @@ void bfs(){
     f[x][y][0] = 0;
     vis[x][y][0] = 1;
     q.push({x,y,0});
-    // int prev = 0;
     while(!q.empty()){
         int ns = q.front().s,nw = q.front().w, nside = q.front().side;
-        
-        // cout << ns << " " << nw << " " << nside << " "  << f[ns][nw][nside] << endl;
         
         for(int i = 0; i <= p; i++){//Sheep
             for(int j = 0; j <= p - i; j++){
@@ -33,20 +30,12 @@ void bfs(){
             int cnt = f[ns][nw][nside];
             if((nws > 0 && nws + Q < nww) || nws < 0 || nww < 0 || vis[nws][nww][nside] == 1 ) continue;
             vis[nws][nww][nside] = 1;
-            // cout << nws << " " << nww << " " << nside << " ";
-            // cout << f[nws][nww][nside] << endl;
-
             cnt++;
 
             f[x - nws][y - nww][1 - nside] = cnt;
-            
-            // cout << x - nws << " " << y - nww << " " << 1-nside << " " << f[x - nws][y - nww][1 - nside] << endl;
-
             q.push({x-nws,y-nww,1-nside});
             }
         }
-
-        // cout << "==============" << endl;
 
         q.pop();
     }

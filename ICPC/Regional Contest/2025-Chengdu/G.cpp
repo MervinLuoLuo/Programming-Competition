@@ -10,6 +10,7 @@ const int INF = 1e18;
 const int maxn = 1e9;
 
 void solve(){
+    int n,k,m;cin >> n >> k >> m;
     
 }
 signed main(){
