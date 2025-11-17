@@ -7,7 +7,7 @@
 #define vii vector<vector<int>>
 using namespace std;
 const int INF = 1e18;
-const int maxn = 1e9;
+constexpr int maxn = 1e9;
 
 void solve(){
     int n,m;cin >> n >> m;
