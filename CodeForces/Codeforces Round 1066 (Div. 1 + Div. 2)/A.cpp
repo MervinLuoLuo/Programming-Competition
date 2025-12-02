@@ -10,17 +10,20 @@ constexpr int INF = 1e18;
 constexpr int maxn = 1e9;
 
 void solve(){
-    int n,a;cin >> n >> a;
-    vector<int> v(n);
-    for(int &x : v) cin >> x;
-    int l = 0, r = 0;
-    for(int i = 0; i < n; i++){
-        if(v[i] < a) l++;
-        else if(v[i] > a) r++;
+    int n;cin >> n;
+    map<int,int> freq;
+    for(int i = 1; i <= n; i++){
+        int x;cin >> x;
+        freq[x]++;
     }
 
-    int b = (l > r ? a - 1 : a + 1);
-    cout << b << endl;
+    int ans = 0;
+    for(auto it : freq){
+        if(it.first < it.second) ans += it.second - it.first;
+        else if (it.first > it.second) ans += it.second;
+    }
+
+    cout << ans << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);

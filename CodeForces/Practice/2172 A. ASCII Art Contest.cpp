@@ -1,3 +1,4 @@
+/*https://codeforces.com/problemset/problem/2172/A*/
 #include <bits/stdc++.h>
 #define endl '\n'
 #define yes cout << "Yes" << endl
@@ -10,24 +11,15 @@ constexpr int INF = 1e18;
 constexpr int maxn = 1e9;
 
 void solve(){
-    int n,a;cin >> n >> a;
-    vector<int> v(n);
-    for(int &x : v) cin >> x;
-    int l = 0, r = 0;
-    for(int i = 0; i < n; i++){
-        if(v[i] < a) l++;
-        else if(v[i] > a) r++;
-    }
-
-    int b = (l > r ? a - 1 : a + 1);
-    cout << b << endl;
+    vector<int> a(3);
+    for(int &x : a) cin >> x;
+    sort(a.begin(),a.end());
+    if(a[2] - a[0] >= 10) cout << "check again" << endl;
+    else cout << "final " << a[1] << endl;
 }
+
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    int t;
-    cin >> t;
-    while(t--){
-        solve();
-    }
+    solve();
     return 0;
 }

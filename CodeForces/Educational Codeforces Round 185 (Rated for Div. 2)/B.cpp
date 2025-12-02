@@ -10,17 +10,17 @@ constexpr int INF = 1e18;
 constexpr int maxn = 1e9;
 
 void solve(){
-    int n,a;cin >> n >> a;
-    vector<int> v(n);
-    for(int &x : v) cin >> x;
-    int l = 0, r = 0;
-    for(int i = 0; i < n; i++){
-        if(v[i] < a) l++;
-        else if(v[i] > a) r++;
+    int n;cin >> n;
+    int cnt = 0, sum = 0;
+    for(int i = 1; i <= n; i++){
+        int x;cin >> x;
+        if(x >= 1) cnt++,sum += x;
     }
 
-    int b = (l > r ? a - 1 : a + 1);
-    cout << b << endl;
+    int sub = n - 1 - (sum - cnt);
+
+    int ans = cnt - max(0LL,sub);
+    cout << ans << endl;
 }
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
