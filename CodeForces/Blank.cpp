@@ -2,27 +2,34 @@
 #define int long long
 #define endl '\n'
 #define PII pair<int,int>
-#define VII vector<int,int>
+#define VII vector<vector<int>>
 using namespace std;
 constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
 
-vector<int> prefix_function(string s) {
-  int n = (int)s.length();
-  vector<int> pi(n);
-  for (int i = 1; i < n; i++) {
-    int j = pi[i - 1];
-    while (j > 0 && s[i] != s[j]) j = pi[j - 1];
-    if (s[i] == s[j]) j++;
-    pi[i] = j;
-  }
-  return pi;
+int gcd(int x,int y){
+    if(!y) return 1;
+    return gcd(y,x % y) + 1;
 }
 
 void solve(){
-    string s = "abccdabcdae";
-    vector<int> pi = prefix_function(s);
-    for(auto it : pi) cout << it << " ";   
+    int n;cin >> n;
+    int ans = 0;
+    int pi,pj;
+    for(int i = 1; i <= n; i++){
+        for(int j = 1;j <= n; j++){
+            int res = gcd(i,j);
+            if(res > ans){
+                ans = res;
+                pi = i;pj = j;
+            }
+            // ans = max(ans,res);
+            // cout << res << " ";
+        }
+        // cout << endl;
+    }
+
+    cout << ans  << " " << pi << " " << pj << endl;
 }
 
 signed main(){
