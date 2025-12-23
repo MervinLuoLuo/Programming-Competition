@@ -9,23 +9,25 @@ constexpr int MAXN = 1e9;
 
 void solve(){
     int n;cin >> n;
-    vector<int> a(n + 1,0);
-    for(int i = 1; i <= n; i++) cin >> a[i];
-    int ans = 0;
-    for(int i = 1; i <= n; i++){
-        int res = 0;
-        for(int j = 1; j <= n; j++){
-            res |= (a[i] & a[j]);
+    string s;cin >> s;
+    s = s + s;
+    int cnt = 0,max0 = 0;
+    for(char c : s){
+        if(c == '0') cnt++;
+        else {
+            max0 = max(max0,cnt);
+            cnt = 0;
         }
-        ans ^= res;
-        cerr << a[i] << " " << res << " " << ans << endl;
     }
 
-    cout << ans << endl;
+    cout << max0 << endl;
 }
 
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    solve();
+    int t;cin >> t;
+    while(t--){
+        solve();
+    }
     return 0;
 }
