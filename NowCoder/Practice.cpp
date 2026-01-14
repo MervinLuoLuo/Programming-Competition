@@ -1,31 +1,37 @@
 #include<bits/stdc++.h>
-#define int long long
-#define endl '\n'
-#define PII pair<int,int>
-#define VII vector<vector<int>>
 using namespace std;
-constexpr int INF = 1e18;
-constexpr int MAXN = 1e9;
 
-void solve(){
-    int n;cin >> n;
-    vector<int> a(n + 1,0);
-    for(int i = 1; i <= n; i++) cin >> a[i];
-    int ans = 0;
-    for(int i = 1; i <= n; i++){
-        int res = 0;
-        for(int j = 1; j <= n; j++){
-            res |= (a[i] & a[j]);
-        }
-        ans ^= res;
-        cerr << a[i] << " " << res << " " << ans << endl;
+typedef struct node{
+    int data;
+    node *next;
+}LNode,*LinkList;
+
+LinkList Creat_Link(){
+    LinkList pf,p,L = NULL;
+    p = (LinkList)malloc(sizeof(LNode));
+    cin >> p -> data;
+    while(p->data == -1){
+        if(!L) L = pf = p,p -> next = NULL;
+        else pf -> next = p;
+        pf = p;
+        p = (LinkList)malloc(sizeof(LNode));
+        p -> next = NULL;
+        cin >> p-> data;
     }
-
-    cout << ans << endl;
+    free(p);
+    return L;
 }
 
-signed main(){
-    ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    solve();
+LinkList Mid(LinkList &L){
+    LinkList q = L;
+    
+    return q;
+}
+
+int main(){
+    LinkList L,pk;
+    int k;
+    L = Creat_Link();
+    pk = Mid(L);   
     return 0;
 }
