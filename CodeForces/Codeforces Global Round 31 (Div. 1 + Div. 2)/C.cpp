@@ -10,7 +10,7 @@ constexpr int MAXN = 1e9;
 void solve(){
     int n,k;cin >> n >> k;
     vector<int> a(k, 0);
-    int p = 0;
+    int p = 0;//被牺牲的数的个数
     
     if(k & 1){
         for(int i = 0; i < k; i++) a[i] = n;
@@ -23,10 +23,10 @@ void solve(){
                         a[j] += (1ll << i);
                     }
                 }
-                if(p < k) p++;
+                if(p < k) p++;//必然有一个元素会被牺牲 递增
             }
             else{
-                for(int j = 0; j < p / 2 * 2; j++) a[j] += (1ll << i);
+                for(int j = 0; j < p / 2 * 2; j++) a[j] += (1ll << i);//这里 p / 2 * 2可以直接取到偶数,不用单独判了
             }
         }
     }
