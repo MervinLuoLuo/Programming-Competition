@@ -1,3 +1,4 @@
+/*https://codeforces.com/contest/2184/problem/A*/
 #include<bits/stdc++.h>
 #define int long long
 #define endl '\n'
@@ -8,13 +9,21 @@ constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
 
 void solve(){
-    int com = abs(1073741823 - 1073741824) + abs(1073741822-1073741822);
-    int ans = abs(1073741823 - 1073741823) + abs(1073741822 - 0);
-    cout << ans << " " << com << endl;
+    int n;cin >> n;
+    if(n == 2){
+        cout << 2 << endl;return;
+    }
+    else if(n == 3){
+        cout << 3 << endl;return;
+    }
+    else cout << n % 2 << endl;
 }
 
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    solve();
+    int t;cin >> t;
+    while(t--){
+        solve();
+    }
     return 0;
 }
