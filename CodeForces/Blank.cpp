@@ -8,9 +8,20 @@ constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
 
 void solve(){
-    int com = abs(1073741823 - 1073741824) + abs(1073741822-1073741822);
-    int ans = abs(1073741823 - 1073741823) + abs(1073741822 - 0);
-    cout << ans << " " << com << endl;
+    int l,r;cin >> l >> r;
+    int ans = 0;
+    for(int i = l; i <= r; i++){
+        string s = to_string(i);
+        reverse(s.begin(),s.end());
+        int p = 0;
+        while(p < s.size() && s[p] == '0') p++;
+        string str = s.substr(p,(int)s.size());
+        int res = stoll(str);
+        ans = max(ans,res);
+    }
+
+    cout << ans << endl;
+    // 113999
 }
 
 signed main(){
