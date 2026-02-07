@@ -7,21 +7,41 @@ using namespace std;
 constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
 
+int func(int n,const vector<int> &a){
+    int res = 0, cur = 0;
+    set<int> st;
+    for(int i = 0; i < n; i++){
+        if(st.count(a[i]) == 0){
+            st.insert(a[i]);
+            cur++;
+        }
+        res += cur;
+    }
+
+    return res;
+}
+
 void solve(){
-    int l,r;cin >> l >> r;
+    int n;cin >> n;
+    vector<int> a(n + 1);
+    for(int i =1; i <= n; i++) cin >> a[i];
+
     int ans = 0;
-    for(int i = l; i <= r; i++){
-        string s = to_string(i);
-        reverse(s.begin(),s.end());
-        int p = 0;
-        while(p < s.size() && s[p] == '0') p++;
-        string str = s.substr(p,(int)s.size());
-        int res = stoll(str);
-        ans = max(ans,res);
+    for(int i = 1; i <= n; i++){
+        for(int j = i; j <= n; j++){
+            vector<int> sub;
+            cout << "[";
+            for(int k = i; k <= j; k++){
+                sub.push_back(a[k]);
+                cout << a[k] << " ";
+            }
+            int res = func(sub.size(),sub);
+            cout << "]: " << res << endl;
+            ans += res;
+        }
     }
 
     cout << ans << endl;
-    // 113999
 }
 
 signed main(){

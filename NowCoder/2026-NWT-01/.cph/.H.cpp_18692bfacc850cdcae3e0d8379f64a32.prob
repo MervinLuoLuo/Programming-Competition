@@ -1,0 +1,1 @@
+{"name":"Local: H","url":"/home/mrevinluo/桌面/Programming-Competition/NowCoder/2026-NWT-01/H.cpp","tests":[{"id":1770264333247,"input":"3\n2\n1 2\n3\n1 2 3\n4\n1 2 0 4","output":"2\n2\n8"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/mrevinluo/桌面/Programming-Competition/NowCoder/2026-NWT-01/H.cpp","group":"local","local":true}
