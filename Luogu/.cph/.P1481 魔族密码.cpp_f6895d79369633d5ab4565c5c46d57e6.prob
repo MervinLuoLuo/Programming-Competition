@@ -1,0 +1,1 @@
+{"name":"Local: P1481 魔族密码","url":"/home/mervinluo/桌面/Programming-Competition/Luogu/P1481 魔族密码.cpp","tests":[{"id":1772778034686,"input":"6\ndmu\ndmuisd\ndmusdsd\ndmusdsdsd\ndmuisdd\ndmuisddd","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/mervinluo/桌面/Programming-Competition/Luogu/P1481 魔族密码.cpp","group":"local","local":true}

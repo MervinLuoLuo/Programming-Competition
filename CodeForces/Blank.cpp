@@ -2,50 +2,46 @@
 #include <vector>
 #define int long long
 #define endl '\n'
+#define VII vector<vector<int>>
 using namespace std;
-int n,m;
-int ans = 0;
-int X,Y;
-vector<vector<int>> g,vis;
+constexpr int INF = 1e9;
 
-int dx[] = {0,0,-1,1};
-int dy[] = {1,-1,0,0};
-
-void bfs(){
-    queue<pair<int,int>> q;
-    q.push({X,Y});
-    while(!q.empty()){
-        auto &[x,y] = q.front();
-        q.pop();
-        if(vis[x][y]) continue;
-        vis[x][y] = 1;
-        if(g[x][y] == 2) ans++;
-        for(int i = 0; i < 4; i++){
-            int nx = x + dx[i],ny = y + dy[i];
-            if(nx < 1 || nx > n || ny < 1 || ny > m || vis[nx][ny]) continue;
-            if(g[nx][ny] == 0) continue;
-            q.push({nx,ny});
-        }
-    }
-}
+int dx[] = {1,-1,0,0};
+int dy[] = {0,0,1,-1};
 
 signed main(){
-    cin >> n >> m;
-    g.assign(n + 1, vector<int>(m + 1, 0));
-    vis.assign(n + 1, vector<int>(m + 1, 0));
+    int n,m;cin >> n >> m;
+    VII g(n + 1,vector<int>(m + 1, 0));
+    int sx,sy,ex,ey;cin >> sx >> sy >> ex >> ey;
     for(int i = 1; i <= n; i++){
         string s;cin >> s;
         s = " " + s;
-        for(int j = 1; j <= m; j++){
-            if(s[j] == '.') g[i][j] = 1;
-            else if(s[j] == '!') g[i][j] = 2;
-            else if(s[j] == '@'){
-                X = i,Y = j;
-                g[i][j] = 1;
-            }
+        for(int j = 1;j <= m; j++){
+            char c = s[j];
+            if(c == '.') g[i][j] = 1;
         }
     }
-    bfs();
-    cout << ans << endl;
+
+    VII dis(n + 1,vector<int>(m + 1, INF));
+    int cur = 0;
+    queue<pair<int,int>> q;
+    q.push({sx,sy});
+    dis[sx][sy] = 0;
+    // cerr << 1 << endl;
+    while(!q.empty()){
+        auto [x,y] = q.front();
+        q.pop();
+
+        for(int k = 0; k < 4; k++){
+            int nx = x + dx[k],ny = y + dy[k];
+            if(nx < 1 || nx > n || ny < 1 || ny > m || g[nx][ny] == 0) continue;
+            if(dis[nx][ny] != INF) continue;
+            dis[nx][ny] = dis[x][y] + 1;
+            q.push({nx,ny});
+        }
+    }
+    // cerr << 2 << endl;
+    if(dis[ex][ey] == INF) cout << -1;
+    else cout << dis[ex][ey];
     return 0;
 }
