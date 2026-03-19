@@ -1,3 +1,4 @@
+/*https://ac.nowcoder.com/acm/problem/20859*/
 #include<bits/stdc++.h>
 #define int long long
 #define endl '\n'
@@ -8,7 +9,7 @@ constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
 
 void solve(){
-    cout << __log(4);
+    
 }
 
 signed main(){

@@ -1,3 +1,4 @@
+/*https://codeforces.com/contest/2204/problem/E*/
 #include<bits/stdc++.h>
 #define int long long
 #define endl '\n'
@@ -8,11 +9,15 @@ constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
 
 void solve(){
-    cout << __log(4);
+    string s;cin >> s;
+
 }
 
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    solve();
+    int t;cin >> t;
+    while(t--){
+        solve();
+    }
     return 0;
 }
