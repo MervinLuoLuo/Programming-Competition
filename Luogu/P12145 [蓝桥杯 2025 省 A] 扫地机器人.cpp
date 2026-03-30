@@ -1,3 +1,4 @@
+/*https://www.luogu.com.cn/problem/P12145*/
 #include<bits/stdc++.h>
 #define int long long
 #define endl '\n'

@@ -1,50 +1,75 @@
 /*https://www.luogu.com.cn/problem/P1195*/
-#include <bits/stdc++.h>
-#define endl '\n'
-#define yes cout << "Yes" << endl
-#define no cout << "No" << endl
+#include<bits/stdc++.h>
 #define int long long
-#define pii pair<int,int>
+#define endl '\n'
+#define PII pair<int,int>
+#define VII vector<vector<int>>
 using namespace std;
-const int INF = 1e18;
-const int maxn = 1e9;
-vector<int> dsu;
-struct Node{
-    int u,v,t;
+constexpr int INF = 1e18;
+constexpr int MAXN = 1e9;
+int n,m,k,l;
+struct Edge{
+    int u,v,w;
 };
+vector<int> par;
+vector<Edge> g;
 
-int find(int x){
-    if(dsu[x] != x) dsu[x] = find(dsu[x]);
-    return dsu[x];
+void add(int u,int v,int w){
+    l++;
+    g[l].u = u;
+    g[l].v = v;
+    g[l].w = w;
 }
 
-bool cmp(const Node a,const Node b){
-    return a.t < b.t;
+int Find(int x){
+    if(par[x] == x) return x;
+    return par[x] = Find(par[x]);
 }
 
-void solve(){
-    int n,m,k;cin >> n >> m >> k;
-    dsu.resize(n + 5);
-    if(n  == k){cout << 0 << endl;return;}
-    for(int i = 1; i <= n; i++) dsu[i] = i;
-    vector<Node> node(m + 5);
+void Merge(int x,int y){
+    int rx = Find(x),ry = Find(y);
+    par[x] = y;
+}
+
+void Kruskal(){
+    int tot = 0;// 选中的边
+    int ans = 0;// 选中的边权和
     for(int i = 1; i <= m; i++){
-        int u,v,t;cin >> u >> v >> t;
-        node[i].u = u;node[i].v = v;node[i].t = t;
-    }
-    int cnt = 0;int ans = 0;
-    sort(node.begin() + 1,node.begin() + 1 + m,cmp);
-    for(int i = 1; i <= m && cnt < n - k; i++){
-        Node cur = node[i];
-        int fu = find(cur.u), fv = find(cur.v);
-        if(fu != fv){
-            dsu[fu] = fv;cnt++;
-            ans += cur.t;
+        int xr = Find(g[i].u),yr = Find(g[i].v);
+        if(xr != yr){
+            Merge(xr,yr);
+            tot++;
+            ans += g[i].w;
+            if(tot == n - k){
+                cout << ans << endl;
+                return;
+            }
         }
     }
-    if(cnt < n - k){cout << "No Answer" << endl;return;}
-    cout << ans << endl;
+    cout << "No Answer" << endl;
 }
+
+
+void solve(){
+    cin >> n >> m >> k;
+    if(n == k){
+        cout << 0 << endl;
+        return;
+    }
+    g.resize(m + 1);
+    par.assign(n + 1,0);
+    for(int i = 1; i <= n; i++) par[i] = i;
+    for(int i = 1;  i<= m; i++){
+        int u,v,w;cin >> u >> v >> w;
+        add(u,v,w);
+    }
+    sort(g.begin() + 1,g.end(),[](Edge x,Edge y){
+        return x.w < y.w;
+    });
+
+    Kruskal();
+}
+
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
     solve();

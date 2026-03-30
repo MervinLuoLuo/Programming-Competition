@@ -21,7 +21,7 @@ bool check(int mid) {
 
     tmp.clear();
     int cnt = 0;
-    int lcnt = 0;
+    // int lcnt = 0;
 
     size_t i = 0;
     while (i < e.size() && cnt < mid) {
@@ -36,7 +36,7 @@ bool check(int mid) {
         int res = min((int)cur.size(), mid - cnt);
 
         for (int t = res; t >= 1; --t) {
-            int need = mid - lcnt - t;
+            int need = mid - cnt - t;
             if (need < 0) need = 0;
             if (need <= cur[t - 1].b) {
                 fin = t;
@@ -49,7 +49,7 @@ bool check(int mid) {
         }
 
         cnt += fin;
-        lcnt += fin;
+        // cnt += fin;
 
         i = j;
     }
