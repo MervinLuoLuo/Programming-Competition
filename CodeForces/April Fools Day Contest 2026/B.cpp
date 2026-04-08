@@ -8,7 +8,7 @@ constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
 
 void solve(){
-    cout << gcd(4,12);
+    cout << "1F601";
 }
 
 signed main(){

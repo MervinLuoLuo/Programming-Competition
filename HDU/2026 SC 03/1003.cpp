@@ -8,11 +8,14 @@ constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
 
 void solve(){
-    cout << gcd(4,12);
+    
 }
 
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    solve();
+    int t;cin >> t;
+    while(t--){
+        solve();
+    }
     return 0;
 }
