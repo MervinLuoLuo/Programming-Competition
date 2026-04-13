@@ -1,3 +1,4 @@
+/*https://atcoder.jp/contests/abc453*/
 #include<bits/stdc++.h>
 #define int long long
 #define endl '\n'
@@ -9,7 +10,11 @@ constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
 
 void solve(){
-    cout << "Hello";
+    int n;cin >> n;
+    string s;cin >> s;
+    int i = 0;
+    while(s[i] == 'o') i++;
+    for(; i < n; i++) cout << s[i];
 }
 
 signed main(){

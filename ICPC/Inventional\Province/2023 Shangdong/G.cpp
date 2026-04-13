@@ -1,3 +1,4 @@
+/*https://qoj.ac/contest/1280/problem/6695*/
 #include<bits/stdc++.h>
 #define int long long
 #define endl '\n'
@@ -9,11 +10,14 @@ constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
 
 void solve(){
-    cout << "Hello";
+    
 }
 
 signed main(){
     ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-    solve();
+    int t;cin >> t;
+    while(t--){
+        solve();
+    }
     return 0;
 }

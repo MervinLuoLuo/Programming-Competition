@@ -9,7 +9,17 @@ constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
 
 void solve(){
-    cout << "Hello";
+    int n,x;cin >> n >> x;
+    vector<int> a(n + 1, 0);
+    for(int i = 0; i <= n; i++) cin >> a[i];
+    cout << 0 << " " << a[0] << endl;
+    int cur = a[0];
+    for(int i = 1;  i <= n; i++){
+        if(abs(a[i] - cur) >= x){
+            cout << i << " " << a[i] << endl;
+            cur = a[i];
+        }
+    }
 }
 
 signed main(){
