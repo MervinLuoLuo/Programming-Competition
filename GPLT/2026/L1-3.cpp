@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+#define int long long
+#define endl '\n'
+#define PII pair<int,int>
+#define VII vector<vector<int>>
+using namespace std;
+constexpr int INF = 1e18;
+constexpr int MAXN = 1e9;
+
+void solve(){
+    int a,b;cin >> a >> b;
+    int res = b - a;
+    cout << res << endl;
+    if(res > 250) cout << "jiu ting tu ran de...";
+    else if(res <= 0) cout << "hai sheng ma?";
+    else cout << "nin tai cong ming le!";
+}
+
+signed main(){
+    ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    int t = 1;
+    // cin >> t;
+    while(t--){
+        solve();
+    }
+    return 0;
+}
