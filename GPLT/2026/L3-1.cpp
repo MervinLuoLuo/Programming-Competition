@@ -8,9 +8,27 @@ using namespace std;
 using i128 = __int128;
 constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
+struct Info{
+    int a,b;
+    string id;
+    int age;
+};
 
 void solve(){
+    int n;cin >> n;
+    queue<int> q;
+    vector<Info> normal,old;
+    for(int i = 1; i <= n; i++){
+        int x,y;cin >> x >>y;
+        string id;cin >> id;
+        int age;cin >> age;
+        if(age >= 80) old.push_back({x,y,id,age});
+        else normal.push_back({x,y,id,age});
+    }
     
+    sort(normal.begin(),normal.end(),[](Info x,Info y){
+        
+    });
 }
 
 signed main(){

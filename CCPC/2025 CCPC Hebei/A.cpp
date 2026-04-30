@@ -10,58 +10,41 @@ constexpr int MAXN = 1e9;
 
 void solve(){
     int n;cin >> n;
-    VII a(2,vector<int>(n, 0));
-    int cnt = 0;
-    for(int i = 0; i < n; i++){
+    VII a(2,vector<int>(n + 1));
+    int l1 = 0;
+    int sum = 0;
+    
+    for(int i = 1; i <= n; i++){
         cin >> a[0][i];
-        cnt += a[0][i];
+        sum += a[0][i];
+        l1 += a[0][i];
+    }
+    for(int i = 1; i <= n; i++){
+        cin >> a[1][i];
+        sum += a[1][i];
     }
 
-    for(int i = 0; i < n; i++){
-        cin >> a[1][i];
-        cnt += a[1][i];
-    }
-    
-    if(n % 2 == 0){
-        int b = 0,c = 0,d = 0;
-        for(int i = 0; i < n; i++) b += a[1][i];
-        for(int i = 0; i < n / 2; i++){
-            c += a[1][n - i - 1];
-            c += a[0][n - i - 1];
-        }
-        for(int i = 0; i < n / 2 - 1; i++){
-            d += a[1][n - i - 1];
-            d += a[0][n - i - 1];
-        }
-        b = min(b,c);
-        d = max(b,d);
-        if(cnt - d > d) cout << "Mandy" << endl;
-        else if(cnt - d == d) cout << "draw" << endl;
+    if(n & 1){
+        // 奇数时，抉择方为 brz, 计算 Mandy 最大得分
+        int b1 = 0,b2 = 0;
+        for(int i = 1; i <= n / 2; i++) b2 += a[0][i] + a[1][i];
+        b1 = b2 + a[0][n / 2 + 1] + a[1][n / 2 + 1];
+        int maxa = min(b1,l1);
+        int maxs = max(maxa, b2);
+        if(maxs > sum - maxs) cout << "Mandy" << endl;
+        else if(maxs == sum - maxs) cout << "draw" << endl;
         else cout << "brz" << endl;
     }
     else{
-        int b = 0,c = 0,d = 0;
-        for (int i = 0;i < n;i++) b += a[0][i];
-        for (int i = 0;i < n / 2 + 1;i++){
-            c += a[0][i];
-            c += a[1][i];
-        }
-        for (int i = 0;i < n / 2;i++){
-            d += a[0][i];
-            d += a[1][i];
-        }
-        b = min(b,c);
-        d = max(b,d);
-        if (cnt-d>d){
-            cout<<"brz\n";
-        }
-        else if (cnt-d==d)
-        {
-            cout<<"draw\n";
-        }else
-        {
-            cout<<"Mandy\n";
-        }
+        // 偶数时，抉择方为 Mandy，计算 brz 最大得分
+        int b1 = 0,b2 = 0;
+        for(int i = n / 2 + 2; i <= n; i++) b2 += a[0][i] + a[1][i];
+        b1 = b2 + a[0][n / 2 + 1] + a[1][n / 2 + 1];
+        int maxb = min(b1,sum - l1);
+        int maxs = max(maxb, b2);
+        if(sum - maxs > maxs) cout << "Mandy" << endl;
+        else if(sum - maxs == maxs) cout << "draw" << endl;
+        else cout << "brz" << endl;
     }
 }
 

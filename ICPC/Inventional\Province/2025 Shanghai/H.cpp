@@ -7,26 +7,13 @@ using namespace std;
 using i128 = __int128;
 constexpr int INF = 1e18;
 constexpr int MAXN = 1e9;
-int n,m;
-vector<bitset<19>> team;
-int rk1,rk2,rk3;
-int p1,p2,p3;
-vector<int> task;
-
-void dfs(int x){
-    if(x == m){
-
-    }
-
-}
 
 void solve(){
-    cin >> n >> m;
-    team.resize(m + 1);
-    for(int i = 1; i <= m; i++) cin >> team[i];
-    cin >> rk1 >> rk2 >> rk3;
-    cin >> p1 >> p2 >> p3;
-
+    cout << "Vivo ";
+    int x;cin >> x;
+    double a = 50;
+    double other = a * x * 0.01;
+    cout << fixed << setprecision(3) << a + other;
 }
 
 signed main(){
