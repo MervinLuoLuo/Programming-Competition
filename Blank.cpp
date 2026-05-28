@@ -3,62 +3,63 @@
 #define endl '\n'
 #define VII vector<vector<int>>
 using namespace std;
-int n,m,k;
-VII g,vis;
+constexpr int dx[] = {0,0,1,-1};
+constexpr int dy[] = {1,-1,0,0};
 
+int n,m,h;
+VII g,best;
+int sx,sy,ex,ey;
+
+void bfs(){
+    queue<tuple<int,int,int>> q;
+    best[sx][sy] = h;
+    q.push({sx,sy,h});
+
+    while(!q.empty()){
+        auto [x,y,ch] = q.front();
+        q.pop();
+        
+        for(int k = 0; k < 4; k++){
+            int nx = x + dx[k],ny = y + dy[k];
+            if(nx < 1 || nx > n || ny < 1 || ny > m) continue;
+            int nh = ch - g[nx][ny];
+            if(nh <= 0 || nh <= best[nx][ny]) continue;
+            best[nx][ny] = nh;
+            q.push({nx,ny,nh});
+        }
+    }
+}
 
 void solve(){
-    cin >> n >> m >> k;
-    g.assign(n + 5,vector<int>(m + 5, 0));
-    vis.assign(n + 5,vector<int>(m + 5, 0));
+    cin >> n >> m >> h;
+    g.assign(n + 1,vector<int>(m + 1, 0));
+    best.assign(n + 1,vector<int>(m + 1, -1));
     for(int i = 1; i <= n; i++){
         string s;cin >> s;
         s = " " + s;
         for(int j = 1; j <= m; j++){
-            if(s[j] == 'o') g[i][j] = 1;
-            // cerr << g[i][j] << " ";
-        }
-        // cerr << endl;
-    }
-
-    vector<int> cnt;
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++){
-            if(!vis[i][j] && g[i][j] == 1){
-                int count = 1;
-                vis[i][j] = 1;
-                for(int k = i + 1; k <= n; k++){
-                    if(vis[k][j] || g[k][j] != 1) break;
-                    count++;
-                    vis[k][j] = 1;
-                    
-                }
-                cnt.push_back(count);
+            if(s[j] == 'S'){
+                sx = i,sy = j;
+                g[i][j] = 0;
+            }
+            else if(s[j] == 'T'){
+                ex = i,ey = j;
+                g[i][j] = 0;
+            }
+            else{
+                g[i][j] = s[j] - '0';
             }
         }
     }
 
-    sort(cnt.begin(),cnt.end(),greater<int>());
-    // cerr << endl;
-    // for(int x : cnt) cerr << x << " ";
-    int ans = 0;
-    for(int x : cnt){
-        if(x == 1) continue;
-        if(x <= k){
-            ans += x - 1;
-            k -= x;
-        }
-        else {
-            if(k >= 2){
-                ans += k - 1;
-                k = 0;
-                break;
-            }
-        }
-    }
-    cout << ans << endl;
+    bfs();
+    if(best[ex][ey] > 0) cout << "Yes" << endl;
+    else cout << "No" << endl;
 }
 
 signed main(){
-    solve();
+    ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    int t;cin >> t;
+    while(t--) solve();
+    return 0;
 }

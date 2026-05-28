@@ -1,0 +1,1 @@
+{"name":"Local: 1002","url":"/home/mervinluo/Desktop/Programming-Competition/HDU/2026 SC 07/1002.cpp","tests":[{"id":1778686077182,"input":"1\n3\n1 2 3\n3 1 2\n2 3 1","output":"3\n1 2 3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/mervinluo/Desktop/Programming-Competition/HDU/2026 SC 07/1002.cpp","group":"local","local":true}
